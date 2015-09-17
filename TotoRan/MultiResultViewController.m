@@ -85,7 +85,7 @@
     resultView = [[UITextView alloc] initWithFrame:TEXTVIEW_RECT];
     resultView.textAlignment = NSTextAlignmentCenter;
     resultView.editable = NO;
-    resultView.contentInset = UIEdgeInsetsMake(-55, 0, 0, 0); //よくわからん余白を消すため
+    resultView.contentInset = UIEdgeInsetsMake(-65, 0, 0, 0); //よくわからん余白を消すため
     resultView.font = [UIFont fontWithName:@"Courier" size:appDelegate.fontSize + 5];
     resultView.layer.borderWidth = 2;
     resultView.layer.borderColor = [[UIColor blackColor] CGColor];
