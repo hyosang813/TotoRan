@@ -28,7 +28,7 @@
 #define SELECT_QUERY_SALEEND @"select strftime('%@', end_date) as enddate from kaisu where open_number = '%@'"
 #define DATEFORMAT1 @"%Y-%m-%d %H:00:00"
 #define DATEFORMAT2 @"%Y年%m月%d日 %H時00分時点"
-#define DATEFORMAT3 @"%Y年%m月%d日 %H時%M分"
+#define DATEFORMAT3 @"%Y年%m月%d日 %H時%M分締切"
 
 enum {KAISU, START_DATE, END_DATE, TEAM_START, TEAM_END=28};
 enum {TOTO, BODDS};

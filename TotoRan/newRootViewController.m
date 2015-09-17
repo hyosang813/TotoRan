@@ -13,7 +13,7 @@
 
 #define BTNRECT_SINGLE CGRectMake(WIDTH / 2 - ((WIDTH / 2) / 2), (HEIGHT / 10) * 3, WIDTH / 2, HEIGHT / 10)
 #define BTNRECT_MULTI CGRectMake(WIDTH / 2 - ((WIDTH / 2) / 2), (HEIGHT / 10) * 6, WIDTH / 2, HEIGHT / 10)
-#define ENDDATE_LABEL_RECT CGRectMake(WIDTH / 2 - (WIDTH / 4), HEIGHT - 100, WIDTH / 2, 50)
+#define ENDDATE_LABEL_RECT CGRectMake(WIDTH / 2 - ((WIDTH * 0.75) / 2), HEIGHT - 100, WIDTH * 0.75, 50)
 #define ROOP_AN_COUNT 10000
 #define ROOP_AN_MESSAGE1 @"何かしらの異常が発生しました\nアプリを再起動してください\n※Jリーグシーズンオフ中の場合はデータがないので起動できません"
 #define ROOP_AN_MESSAGE2 @"何かしらの異常が発生しました\nアプリを再起動してください"
@@ -31,6 +31,7 @@ enum {SINGLE = 101, MULTI};
     BOOL abnomalFlg; //何かしらの異常がある場合は次画面への遷移を抑制する
     NSString *abnomalMessage; //何かしらの異常がある場合に次画面遷移を試みた場合に表示するメッセージ
     AppDelegate *appDelegate; //通信とDB失敗データの取得と各種データの格納用
+    int fontSizeDispatch; //機種別フォントサイズ
 }
 
 //初期化
@@ -40,6 +41,7 @@ enum {SINGLE = 101, MULTI};
     if (self) {
         abnomalFlg = NO;
         abnomalMessage = nil;
+        fontSizeDispatch = 0;
     }
     return self;
 }
@@ -50,6 +52,21 @@ enum {SINGLE = 101, MULTI};
 
     //背景色は黄色で黒で縁取り ※黒で縁取ると黒いiPhoneだとただ画面がちっちゃく見えるだけ。。。
     self.view.backgroundColor = [UIColor yellowColor];
+    
+    //機種を画面サイズ幅で制御 4シリーズと5シリーズは320.0、6は375.0、6+は414.0　※6sシリーズを考慮すっぺ
+    float widthSize = self.view.bounds.size.width;
+    float HeightSize = self.view.bounds.size.height;
+    if (widthSize <= 320.0) {
+        if (HeightSize <= 960) {
+            fontSizeDispatch = 12;
+        } else {
+            fontSizeDispatch = 14;
+        }
+    } else if (widthSize >= 375.0 && 414.0 > widthSize) {
+        fontSizeDispatch = 16;
+    } else {
+        fontSizeDispatch = 18;
+    }
     
     //ボタン
     UIButton *singleBtn = [self makeButton:@"シングル選択" frame:BTNRECT_SINGLE tag:SINGLE];
@@ -78,14 +95,17 @@ enum {SINGLE = 101, MULTI};
     [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     [btn setTitle:titile forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(btnPush:) forControlEvents:UIControlEventTouchUpInside];
+    [btn.titleLabel setFont:[UIFont systemFontOfSize:fontSizeDispatch + 12]];
     //縁取り
     [[btn layer] setBorderColor:[[UIColor blackColor] CGColor]]; // 枠線の色
     [[btn layer] setBorderWidth:3.0]; // 枠線の太さ
-    //あえて大きく設定したフォントサイズの自動縮小
-    [btn.titleLabel setFont:[UIFont systemFontOfSize:48]];
-    btn.titleLabel.adjustsFontSizeToFitWidth = YES;
-    btn.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
-    btn.titleLabel.minimumScaleFactor = 0.1f;
+    
+    
+//    //あえて大きく設定したフォントサイズの自動縮小
+//    [btn.titleLabel setFont:[UIFont systemFontOfSize:48]];
+//    btn.titleLabel.adjustsFontSizeToFitWidth = YES;
+//    btn.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+//    btn.titleLabel.minimumScaleFactor = 0.1f;
 
     return btn;
 }
@@ -96,21 +116,7 @@ enum {SINGLE = 101, MULTI};
     //appDelegateをインスタンス化
     appDelegate = [[UIApplication sharedApplication] delegate];
     
-    //機種を画面サイズ幅で制御 4シリーズと5シリーズは320.0、6は375.0、6+は414.0　※6sシリーズを考慮すっぺ
-    float widthSize = self.view.bounds.size.width;
-    float HeightSize = self.view.bounds.size.height;
-    int fontSizeDispatch = 0;
-    if (widthSize <= 320.0) {
-        if (HeightSize <= 960) {
-            fontSizeDispatch = 12;
-        } else {
-            fontSizeDispatch = 14;
-        }
-    } else if (widthSize >= 375.0 && 414.0 > widthSize) {
-        fontSizeDispatch = 16;
-    } else {
-        fontSizeDispatch = 18;
-    }
+    
     //appDelegateにフォントサイズを格納
     appDelegate.fontSize = fontSizeDispatch;
     
@@ -223,12 +229,15 @@ enum {SINGLE = 101, MULTI};
             kaisuLabel.backgroundColor = [UIColor clearColor];
             kaisuLabel.textColor = [UIColor blackColor];
             kaisuLabel.numberOfLines = 2;
-            kaisuLabel.text = [NSString stringWithFormat:@"　対象回数：第%@回 toto\n販売終了日：%@", [kaisu substringWithRange:NSMakeRange(1,3)], [dbControll returnSaleEndDate]];
-            //あえて大きく設定したフォントサイズの自動縮小
-            [kaisuLabel setFont:[UIFont systemFontOfSize:48]];
-            kaisuLabel.adjustsFontSizeToFitWidth = YES;
-            kaisuLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
-            kaisuLabel.minimumScaleFactor = 0.1f;
+            kaisuLabel.textAlignment = NSTextAlignmentCenter;
+            kaisuLabel.text = [NSString stringWithFormat:@"第%@回 toto\n%@", [kaisu substringWithRange:NSMakeRange(1,3)], [dbControll returnSaleEndDate]];
+            [kaisuLabel setFont:[UIFont systemFontOfSize:fontSizeDispatch - 3]];
+            
+//            //あえて大きく設定したフォントサイズの自動縮小
+//            [kaisuLabel setFont:[UIFont systemFontOfSize:48]];
+//            kaisuLabel.adjustsFontSizeToFitWidth = YES;
+//            kaisuLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+//            kaisuLabel.minimumScaleFactor = 0.1f;
             
             [self.view addSubview:kaisuLabel];
             
