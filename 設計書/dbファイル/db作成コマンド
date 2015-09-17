@@ -1,0 +1,83 @@
+sqlite3 toto.db
+
+PRAGMA foreign_keys = ON;
+
+BEGIN TRANSACTION;
+
+create table kaisu(open_number text primary key,start_date datetime not null,end_date datetime not null);
+
+create table kumiawase(
+kaisu text not null,
+id  integer  not null,
+get_date datetime,
+home_team text not null,
+away_team text not null,
+home_rate real,
+draw_rate real,
+away_rate real,
+home_rate_b real,
+draw_rate_b real,
+away_rate_b real,
+PRIMARY KEY(kaisu,id),
+FOREIGN KEY(kaisu) REFERENCES kaisu(open_number)
+);
+
+create table abbname(fullname text not null,name text not null);
+
+insert into abbname values('浦和レッズ','浦和');
+insert into abbname values('ガンバ大阪','Ｇ大阪');
+insert into abbname values('サンフレッチェ広島','広島');
+insert into abbname values('ＦＣ東京','Ｆ東京');
+insert into abbname values('横浜Ｆ・マリノス','横浜Ｍ');
+insert into abbname values('サガン鳥栖','鳥栖');
+insert into abbname values('川崎フロンターレ','川崎');
+insert into abbname values('鹿島アントラーズ','鹿島');
+insert into abbname values('松本山雅ＦＣ','松本');
+insert into abbname values('湘南ベルマーレ','湘南');
+insert into abbname values('名古屋グランパス','名古屋');
+insert into abbname values('ベガルタ仙台','仙台');
+insert into abbname values('柏レイソル','柏');
+insert into abbname values('ヴィッセル神戸','神戸');
+insert into abbname values('モンテディオ山形','山形');
+insert into abbname values('清水エスパルス','清水');
+insert into abbname values('アルビレックス新潟','新潟');
+insert into abbname values('ヴァンフォーレ甲府','甲府');
+
+insert into abbname values('ジュビロ磐田','磐田');
+insert into abbname values('ジェフユナイテッド千葉','千葉');
+insert into abbname values('ツエーゲン金沢','金沢');
+insert into abbname values('大宮アルディージャ','大宮');
+insert into abbname values('アビスパ福岡','福岡');
+insert into abbname values('Ｖ・ファーレン長崎','長崎');
+insert into abbname values('コンサドーレ札幌','札幌');
+insert into abbname values('セレッソ大阪','Ｃ大阪');
+insert into abbname values('愛媛ＦＣ','愛媛');
+insert into abbname values('横浜ＦＣ','横浜Ｃ');
+insert into abbname values('ファジアーノ岡山','岡山');
+insert into abbname values('東京ヴェルディ','東京Ｖ');
+insert into abbname values('カマタマーレ讃岐','讃岐');
+insert into abbname values('栃木ＳＣ','栃木');
+insert into abbname values('ギラヴァンツ北九州','北九州');
+insert into abbname values('徳島ヴォルティス','徳島');
+insert into abbname values('ザスパクサツ群馬','群馬');
+insert into abbname values('ＦＣ岐阜','岐阜');
+insert into abbname values('水戸ホーリーホック','水戸');
+insert into abbname values('京都サンガF.C.','京都');
+insert into abbname values('大分トリニータ','大分');
+insert into abbname values('ロアッソ熊本','熊本');
+
+insert into abbname values('レノファ山口ＦＣ','山口');
+insert into abbname values('ＡＣ長野パルセイロ','長野');
+insert into abbname values('ガイナーレ鳥取','鳥取');
+insert into abbname values('ＦＣ町田ゼルビア','町田');
+insert into abbname values('ＳＣ相模原','相模原');
+insert into abbname values('カターレ富山','富山');
+insert into abbname values('ＦＣ琉球','琉球');
+insert into abbname values('ブラウブリッツ秋田','秋田');
+insert into abbname values('福島ユナイテッドＦＣ','福島');
+insert into abbname values('Ｙ．Ｓ．Ｃ．Ｃ．横浜','Ｙ横浜');
+insert into abbname values('藤枝ＭＹＦＣ','藤枝');
+insert into abbname values('Ｊリーグ・アンダー２２選抜','Ｊ選抜');
+insert into abbname values('グルージャ盛岡','盛岡');
+
+COMMIT;
