@@ -38,6 +38,7 @@ enum {ZERO, TOTO, BOOK};
     
     //結果文字列に変換
     resultString = [NSMutableString new];
+    int viewHeight = 0;
     for (NSArray *arr in self.hanteiDataArray) {
         //絞り込み対象かどうかを判定
         if ([self decDisplayTarget:arr]) continue;
@@ -52,7 +53,9 @@ enum {ZERO, TOTO, BOOK};
             //5個目と10個目にスペース追加(bODDSがあればその間もスペース)
             if (i == 4 || i == 9 || i == 12 || i == 14) [resultString appendString:@" "];
         }
-        //改行
+        
+        //viewの高さの基準を＋１して改行
+        viewHeight++;
         [resultString appendString:@"\n"];
     }
     
@@ -69,7 +72,7 @@ enum {ZERO, TOTO, BOOK};
     
     //70%縮小サイズのheightと大体の必要heightを取得
     float seventhHeight = self.view.bounds.size.height * 0.70;
-    float maxHeight = 100 + ((appDelegate.fontSize - 1) * 1.65) * self.hanteiDataArray.count + ((appDelegate.fontSize - 1) * 2);
+    float maxHeight = 100 + ((appDelegate.fontSize - 1) * 1.65) * viewHeight + ((appDelegate.fontSize - 1) * 2);
     
     //元のサイズに７掛けしたサイズより小さい場合は高さを低く調整する
     if (seventhHeight > maxHeight) seventhHeight = maxHeight;
