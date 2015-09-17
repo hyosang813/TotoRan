@@ -98,9 +98,14 @@ enum {SINGLE = 101, MULTI};
     
     //機種を画面サイズ幅で制御 4シリーズと5シリーズは320.0、6は375.0、6+は414.0　※6sシリーズを考慮すっぺ
     float widthSize = self.view.bounds.size.width;
+    float HeightSize = self.view.bounds.size.height;
     int fontSizeDispatch = 0;
     if (widthSize <= 320.0) {
-        fontSizeDispatch = 14;
+        if (HeightSize <= 960) {
+            fontSizeDispatch = 12;
+        } else {
+            fontSizeDispatch = 14;
+        }
     } else if (widthSize >= 375.0 && 414.0 > widthSize) {
         fontSizeDispatch = 16;
     } else {
