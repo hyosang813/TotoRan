@@ -98,7 +98,6 @@ enum {ZERO, ONE, TWO, THREE};
 {
     UIButton *btn = [[UIButton alloc] initWithFrame:frame];
     btn.tag = tag;
-    btn.enabled = NO;
     [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     [btn setTitle:titile forState:UIControlStateNormal];
@@ -132,7 +131,7 @@ enum {ZERO, ONE, TWO, THREE};
     }
     
     //データ取得中はインジケータ回し始める
-    [SVProgressHUD showWithStatus:@"データ取得中..."];
+    [SVProgressHUD showWithStatus:@"データ取得中..." maskType:SVProgressHUDMaskTypeBlack];
     
     //別スレッドで各データの取得処理を行う
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, ZERO), ^{
@@ -158,7 +157,7 @@ enum {ZERO, ONE, TWO, THREE};
         int abnomalCount = ZERO;
         while (YES) {
             if ([dbControll kaisuDataCountCheck] != ZERO) {
-                //kaisuテーブルにinsertが始まってから少し猶予を持たせるためにさらに２秒スリープ
+                //kaisuテーブルにinsertが始まってから少し猶予を持たせるためにさらに3秒スリープ
                 [NSThread sleepForTimeInterval:SLEEP_TIME];
                 if (![dbControll returnKaisaiYesNo]) {
                     [self alertDisplay:NOT_KAISAI_MESSAGE];
@@ -218,19 +217,13 @@ enum {ZERO, ONE, TWO, THREE};
             //インジケータ終了
             [SVProgressHUD showSuccessWithStatus:@"データ取得完了！"];
             
-            //ボタンを選択可能に
-            for (int i = SINGLE; i <= MULTI; i++) {
-                UIButton *button = (UIButton *)[self.view viewWithTag:i];
-                button.enabled = YES;
-            }
-            
             //現在の回数と販売終了日を表示してあげようかね？
             UILabel *kaisuLabel = [[UILabel alloc] initWithFrame:ENDDATE_LABEL_RECT];
             kaisuLabel.backgroundColor = [UIColor clearColor];
             kaisuLabel.textColor = [UIColor blackColor];
             kaisuLabel.numberOfLines = TWO;
             kaisuLabel.textAlignment = NSTextAlignmentCenter;
-            kaisuLabel.text = [NSString stringWithFormat:@"第%@回 toto\n%@", [kaisu substringWithRange:NSMakeRange(ONE,THREE)], [dbControll returnSaleEndDate]];
+            kaisuLabel.text = [NSString stringWithFormat:@"対象回：第%@回 toto\n%@", [kaisu substringWithRange:NSMakeRange(ONE,THREE)], [dbControll returnSaleEndDate]];
             [kaisuLabel setFont:[UIFont systemFontOfSize:fontSizeDispatch - THREE]];
             
             [self.view addSubview:kaisuLabel];
@@ -270,12 +263,6 @@ enum {ZERO, ONE, TWO, THREE};
    
     //インジケータは即終了
     [SVProgressHUD dismiss];
-    
-    //ボタンを選択可能に
-    for (int i = SINGLE; i <= MULTI; i++) {
-        UIButton *button = (UIButton *)[self.view viewWithTag:i];
-        button.enabled = YES;
-    }
 }
 
 - (void)didReceiveMemoryWarning {[super didReceiveMemoryWarning];}
