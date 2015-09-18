@@ -62,10 +62,14 @@ enum {ZERO, TOTO, BOOK};
     //DBからら現在開催回を取得してそれをキーに支持率取得日時の文字列を取得
     ControllDataBase *dbControll = [ControllDataBase new];
     
+    //条件に合致したデータがない場合はボタン選択できなくする
+    BOOL dataNothing = YES;
+    
     //プチ削減しすぎて結果が０件だった場合はメッセージ追加
     if (resultString.length > ZERO) {
         [resultString appendString:@"\n"];
         [resultString appendString:[dbControll returnGetRateTime]];
+        dataNothing = NO;
     } else {
         resultString = [@"条件に合致するデータ無し\n" mutableCopy];
     }
@@ -105,11 +109,18 @@ enum {ZERO, TOTO, BOOK};
     //データ保存ボタンを配置
     UIButton *copyBtn = [[UIButton alloc] initWithFrame:BTNRECT_COPY];
     [copyBtn setTitle:@"コピー" forState:UIControlStateNormal];
-    [copyBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [copyBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
-    [copyBtn addTarget:self action:@selector(dataCopy) forControlEvents:UIControlEventTouchUpInside];
-    //縁取り
-    [[copyBtn layer] setBorderColor:[[UIColor blackColor] CGColor]]; // 枠線の色
+    if (dataNothing) {
+        [copyBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [copyBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+        //縁取り
+        [[copyBtn layer] setBorderColor:[[UIColor lightGrayColor] CGColor]]; // 枠線の色
+    } else {
+        [copyBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [copyBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+        [copyBtn addTarget:self action:@selector(dataCopy) forControlEvents:UIControlEventTouchUpInside];
+        //縁取り
+        [[copyBtn layer] setBorderColor:[[UIColor blackColor] CGColor]]; // 枠線の色
+    }
     [[copyBtn layer] setBorderWidth:2.0]; // 枠線の太さ
     [copyBtn.titleLabel setFont:[UIFont systemFontOfSize:appDelegate.fontSize + 8]];
     [self.view addSubview:copyBtn];
@@ -149,8 +160,10 @@ enum {ZERO, TOTO, BOOK};
 //クリップボードにコピー
 - (void)dataCopy
 {
+    //結果に「＃トトラン！」を付与する
+    NSString *copyText = [resultView.text stringByAppendingString:@"\n\n#トトラン！"];
     UIPasteboard *pastebd = [UIPasteboard generalPasteboard];
-    [pastebd setValue:resultView.text forPasteboardType:@"public.utf8-plain-text"];
+    [pastebd setValue:copyText forPasteboardType:@"public.utf8-plain-text"];
     [[[UIAlertView alloc] initWithTitle:@""
                                 message:@"クリップボードに保存しました\n以下のような場所にご使用ください\n・twitter\n・FaceBook\n・某巨大掲示板"
                                delegate:self

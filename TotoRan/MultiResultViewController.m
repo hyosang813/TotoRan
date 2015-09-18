@@ -278,8 +278,10 @@
 //クリップボードにコピー
 - (void)dataCopy
 {
+    //結果に「＃トトラン！」を付与する
+    NSString *copyText = [resultView.text stringByAppendingString:@"\n#トトラン！"];
     UIPasteboard *pastebd = [UIPasteboard generalPasteboard];
-    [pastebd setValue:resultView.text forPasteboardType:@"public.utf8-plain-text"];
+    [pastebd setValue:copyText forPasteboardType:@"public.utf8-plain-text"];
     [[[UIAlertView alloc] initWithTitle:@""
                                 message:@"クリップボードに保存しました\n以下のような場所にご使用ください\n・twitter\n・FaceBook\n・某巨大掲示板"
                                delegate:self
