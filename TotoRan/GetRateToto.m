@@ -43,7 +43,7 @@ enum {ZERO, ONE, TWO, THREE, FOUR, SIX = 6, MAX = 39};
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     if (!connection) {
-        NSLog(@"Connection error");
+        //NSLog(@"Connection error");
     }
 }
 
@@ -68,7 +68,7 @@ enum {ZERO, ONE, TWO, THREE, FOUR, SIX = 6, MAX = 39};
     NSError *error = nil;
     HTMLParser *parser = [[HTMLParser alloc] initWithString:htmlString error:&error];
     if (error) {
-        NSLog(@"Error: %@", error);
+        //NSLog(@"Error: %@", error);
         return;
     }
     
@@ -115,7 +115,7 @@ enum {ZERO, ONE, TWO, THREE, FOUR, SIX = 6, MAX = 39};
 //エラー時
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    NSLog(@"URL CONNECT ERROR!! (%@)", NSStringFromClass([self class]));
+    //NSLog(@"URL CONNECT ERROR!! (%@)", NSStringFromClass([self class]));
 }
 
 @end
