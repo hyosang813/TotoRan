@@ -11,9 +11,10 @@
 #define WIDTH self.view.bounds.size.width
 #define HEIGHT self.view.bounds.size.height
 
-#define BTNRECT_SINGLE CGRectMake(WIDTH / 2 - ((WIDTH / 2) / 2), (HEIGHT / 10) * 3, WIDTH / 2, HEIGHT / 10)
-#define BTNRECT_MULTI CGRectMake(WIDTH / 2 - ((WIDTH / 2) / 2), (HEIGHT / 10) * 6, WIDTH / 2, HEIGHT / 10)
-#define ENDDATE_LABEL_RECT CGRectMake(WIDTH / 2 - ((WIDTH * 0.75) / 2), HEIGHT - 100, WIDTH * 0.75, 50)
+#define LOGO_RECT CGRectMake(WIDTH / 2 - 50, (HEIGHT / 8) - 10, 100, 100)
+#define BTNRECT_SINGLE CGRectMake(WIDTH / 2 - ((WIDTH / 2) / 2), (HEIGHT / 8) * 3 - 10, WIDTH / 2, HEIGHT / 10)
+#define BTNRECT_MULTI CGRectMake(WIDTH / 2 - ((WIDTH / 2) / 2), (HEIGHT / 8) * 5 - 10, WIDTH / 2, HEIGHT / 10)
+#define ENDDATE_LABEL_RECT CGRectMake(WIDTH / 2 - ((WIDTH * 0.75) / 2), (HEIGHT / 8) * 7 - 40, WIDTH * 0.75, 50)
 #define ROOP_AN_COUNT 10000
 #define ROOP_AN_MESSAGE1 @"何かしらの異常が発生しました\nアプリを再起動してください\n※Jリーグシーズンオフ中の場合はデータがないので起動できません"
 #define ROOP_AN_MESSAGE2 @"何かしらの異常が発生しました\nアプリを再起動してください"
@@ -68,21 +69,16 @@ enum {SINGLE = 101, MULTI};
         fontSizeDispatch = 18;
     }
     
+    //ロゴ
+    UIImageView *logo = [[UIImageView alloc] initWithFrame:LOGO_RECT];
+    logo.image = [UIImage imageNamed:@"TotoRanLogo.png"];
+    [self.view addSubview:logo];
+    
     //ボタン
     UIButton *singleBtn = [self makeButton:@"シングル選択" frame:BTNRECT_SINGLE tag:SINGLE];
     UIButton *multiBtn = [self makeButton:@"マルチ選択" frame:BTNRECT_MULTI tag:MULTI];
     [self.view addSubview:singleBtn];
     [self.view addSubview:multiBtn];
-    
-    
-    
-    
-    
-    //ボタンの上部にロゴでも入れる？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-    
-    
-    
-    
 }
 
 //ボタン生成メソッド
@@ -99,13 +95,6 @@ enum {SINGLE = 101, MULTI};
     //縁取り
     [[btn layer] setBorderColor:[[UIColor blackColor] CGColor]]; // 枠線の色
     [[btn layer] setBorderWidth:3.0]; // 枠線の太さ
-    
-    
-//    //あえて大きく設定したフォントサイズの自動縮小
-//    [btn.titleLabel setFont:[UIFont systemFontOfSize:48]];
-//    btn.titleLabel.adjustsFontSizeToFitWidth = YES;
-//    btn.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
-//    btn.titleLabel.minimumScaleFactor = 0.1f;
 
     return btn;
 }
@@ -232,12 +221,6 @@ enum {SINGLE = 101, MULTI};
             kaisuLabel.textAlignment = NSTextAlignmentCenter;
             kaisuLabel.text = [NSString stringWithFormat:@"第%@回 toto\n%@", [kaisu substringWithRange:NSMakeRange(1,3)], [dbControll returnSaleEndDate]];
             [kaisuLabel setFont:[UIFont systemFontOfSize:fontSizeDispatch - 3]];
-            
-//            //あえて大きく設定したフォントサイズの自動縮小
-//            [kaisuLabel setFont:[UIFont systemFontOfSize:48]];
-//            kaisuLabel.adjustsFontSizeToFitWidth = YES;
-//            kaisuLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
-//            kaisuLabel.minimumScaleFactor = 0.1f;
             
             [self.view addSubview:kaisuLabel];
             
