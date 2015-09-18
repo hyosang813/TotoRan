@@ -44,6 +44,7 @@
 		FEE31F4C1BABF6CC0083A6F3 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F441BABF6CC0083A6F3 /* Icon-Small.png */; settings = {ASSET_TAGS = (); }; };
 		FEE31F4D1BABF6CC0083A6F3 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F451BABF6CC0083A6F3 /* Icon-Small@2x.png */; settings = {ASSET_TAGS = (); }; };
 		FEE31F4E1BABF6CC0083A6F3 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F461BABF6CC0083A6F3 /* Icon-Small@3x.png */; settings = {ASSET_TAGS = (); }; };
+		FEE31F511BAC00E60083A6F3 /* libNendAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE31F4F1BAC00E60083A6F3 /* libNendAd.a */; settings = {ASSET_TAGS = (); }; };
 		FEF1A9DA1B1C8F1C0051C636 /* MultiChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF1A9D91B1C8F1C0051C636 /* MultiChoiceViewController.m */; };
 		FEF1A9DD1B1C91350051C636 /* SingleDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF1A9DC1B1C91350051C636 /* SingleDetailsViewController.m */; };
 		FEF1A9E01B1C915E0051C636 /* MultiDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF1A9DF1B1C915E0051C636 /* MultiDetailsViewController.m */; };
@@ -61,7 +62,6 @@
 		FEFA60371BA44D7B005CEAD0 /* nomal.png in Resources */ = {isa = PBXBuildFile; fileRef = FEFA60341BA44D7B005CEAD0 /* nomal.png */; };
 		FEFA60381BA44D7B005CEAD0 /* select_multi.png in Resources */ = {isa = PBXBuildFile; fileRef = FEFA60351BA44D7B005CEAD0 /* select_multi.png */; };
 		FEFA60391BA44D7B005CEAD0 /* select_single.png in Resources */ = {isa = PBXBuildFile; fileRef = FEFA60361BA44D7B005CEAD0 /* select_single.png */; };
-		FEFA603D1BA47E9A005CEAD0 /* libNendAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEFA603A1BA47E9A005CEAD0 /* libNendAd.a */; };
 		FEFA603F1BA47EC2005CEAD0 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEFA603E1BA47EC2005CEAD0 /* AdSupport.framework */; };
 		FEFA60411BA47ED8005CEAD0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEFA60401BA47ED8005CEAD0 /* Security.framework */; };
 		FEFA60431BA47EE2005CEAD0 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEFA60421BA47EE2005CEAD0 /* ImageIO.framework */; };
@@ -129,6 +129,8 @@
 		FEE31F441BABF6CC0083A6F3 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
 		FEE31F451BABF6CC0083A6F3 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		FEE31F461BABF6CC0083A6F3 /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
+		FEE31F4F1BAC00E60083A6F3 /* libNendAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNendAd.a; sourceTree = "<group>"; };
+		FEE31F501BAC00E60083A6F3 /* NADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADView.h; sourceTree = "<group>"; };
 		FEF1A9D81B1C8F1C0051C636 /* MultiChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiChoiceViewController.h; sourceTree = "<group>"; };
 		FEF1A9D91B1C8F1C0051C636 /* MultiChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiChoiceViewController.m; sourceTree = "<group>"; };
 		FEF1A9DB1B1C91350051C636 /* SingleDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleDetailsViewController.h; sourceTree = "<group>"; };
@@ -157,9 +159,6 @@
 		FEFA60341BA44D7B005CEAD0 /* nomal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nomal.png; sourceTree = "<group>"; };
 		FEFA60351BA44D7B005CEAD0 /* select_multi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_multi.png; sourceTree = "<group>"; };
 		FEFA60361BA44D7B005CEAD0 /* select_single.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_single.png; sourceTree = "<group>"; };
-		FEFA603A1BA47E9A005CEAD0 /* libNendAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNendAd.a; sourceTree = "<group>"; };
-		FEFA603B1BA47E9A005CEAD0 /* NADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADInterstitial.h; sourceTree = "<group>"; };
-		FEFA603C1BA47E9A005CEAD0 /* NADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADView.h; sourceTree = "<group>"; };
 		FEFA603E1BA47EC2005CEAD0 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		FEFA60401BA47ED8005CEAD0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FEFA60421BA47EE2005CEAD0 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -175,9 +174,9 @@
 				FEFA60431BA47EE2005CEAD0 /* ImageIO.framework in Frameworks */,
 				FEFA60411BA47ED8005CEAD0 /* Security.framework in Frameworks */,
 				FEFA603F1BA47EC2005CEAD0 /* AdSupport.framework in Frameworks */,
+				FEE31F511BAC00E60083A6F3 /* libNendAd.a in Frameworks */,
 				FEFA60291B9C814B005CEAD0 /* QuartzCore.framework in Frameworks */,
 				FE4512001B482D7C006CBEB1 /* AudioToolbox.framework in Frameworks */,
-				FEFA603D1BA47E9A005CEAD0 /* libNendAd.a in Frameworks */,
 				FE37AF831B0AFCD000D24C51 /* libxml2.dylib in Frameworks */,
 				FE37AF811B0ADB6500D24C51 /* libsqlite3.dylib in Frameworks */,
 			);
@@ -270,9 +269,8 @@
 		FE37AF691B0AD96D00D24C51 /* Extarnal */ = {
 			isa = PBXGroup;
 			children = (
-				FEFA603A1BA47E9A005CEAD0 /* libNendAd.a */,
-				FEFA603B1BA47E9A005CEAD0 /* NADInterstitial.h */,
-				FEFA603C1BA47E9A005CEAD0 /* NADView.h */,
+				FEE31F4F1BAC00E60083A6F3 /* libNendAd.a */,
+				FEE31F501BAC00E60083A6F3 /* NADView.h */,
 				FEFA60221B9C8127005CEAD0 /* SVProgressHUD.bundle */,
 				FEFA601F1B9C8127005CEAD0 /* SVIndefiniteAnimatedView.h */,
 				FEFA60201B9C8127005CEAD0 /* SVIndefiniteAnimatedView.m */,
