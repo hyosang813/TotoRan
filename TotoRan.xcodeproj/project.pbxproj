@@ -36,6 +36,14 @@
 		FE90E5751B90319600DCEAF2 /* UIViewController+MJPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90E5731B90319600DCEAF2 /* UIViewController+MJPopupViewController.m */; };
 		FE90E5781B90351B00DCEAF2 /* PopHanteiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90E5771B90351B00DCEAF2 /* PopHanteiViewController.m */; };
 		FEE31F2E1BABE3570083A6F3 /* TotoRanLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F2D1BABE3570083A6F3 /* TotoRanLogo.png */; settings = {ASSET_TAGS = (); }; };
+		FEE31F471BABF6CC0083A6F3 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F3F1BABF6CC0083A6F3 /* Icon-60@2x.png */; settings = {ASSET_TAGS = (); }; };
+		FEE31F481BABF6CC0083A6F3 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F401BABF6CC0083A6F3 /* Icon-60@3x.png */; settings = {ASSET_TAGS = (); }; };
+		FEE31F491BABF6CC0083A6F3 /* Icon-Small-40.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F411BABF6CC0083A6F3 /* Icon-Small-40.png */; settings = {ASSET_TAGS = (); }; };
+		FEE31F4A1BABF6CC0083A6F3 /* Icon-Small-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F421BABF6CC0083A6F3 /* Icon-Small-40@2x.png */; settings = {ASSET_TAGS = (); }; };
+		FEE31F4B1BABF6CC0083A6F3 /* Icon-Small-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F431BABF6CC0083A6F3 /* Icon-Small-40@3x.png */; settings = {ASSET_TAGS = (); }; };
+		FEE31F4C1BABF6CC0083A6F3 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F441BABF6CC0083A6F3 /* Icon-Small.png */; settings = {ASSET_TAGS = (); }; };
+		FEE31F4D1BABF6CC0083A6F3 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F451BABF6CC0083A6F3 /* Icon-Small@2x.png */; settings = {ASSET_TAGS = (); }; };
+		FEE31F4E1BABF6CC0083A6F3 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F461BABF6CC0083A6F3 /* Icon-Small@3x.png */; settings = {ASSET_TAGS = (); }; };
 		FEF1A9DA1B1C8F1C0051C636 /* MultiChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF1A9D91B1C8F1C0051C636 /* MultiChoiceViewController.m */; };
 		FEF1A9DD1B1C91350051C636 /* SingleDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF1A9DC1B1C91350051C636 /* SingleDetailsViewController.m */; };
 		FEF1A9E01B1C915E0051C636 /* MultiDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF1A9DF1B1C915E0051C636 /* MultiDetailsViewController.m */; };
@@ -113,6 +121,14 @@
 		FE90E5761B90351B00DCEAF2 /* PopHanteiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopHanteiViewController.h; sourceTree = "<group>"; };
 		FE90E5771B90351B00DCEAF2 /* PopHanteiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopHanteiViewController.m; sourceTree = "<group>"; };
 		FEE31F2D1BABE3570083A6F3 /* TotoRanLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TotoRanLogo.png; sourceTree = "<group>"; };
+		FEE31F3F1BABF6CC0083A6F3 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		FEE31F401BABF6CC0083A6F3 /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
+		FEE31F411BABF6CC0083A6F3 /* Icon-Small-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-40.png"; sourceTree = "<group>"; };
+		FEE31F421BABF6CC0083A6F3 /* Icon-Small-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-40@2x.png"; sourceTree = "<group>"; };
+		FEE31F431BABF6CC0083A6F3 /* Icon-Small-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-40@3x.png"; sourceTree = "<group>"; };
+		FEE31F441BABF6CC0083A6F3 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		FEE31F451BABF6CC0083A6F3 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		FEE31F461BABF6CC0083A6F3 /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
 		FEF1A9D81B1C8F1C0051C636 /* MultiChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiChoiceViewController.h; sourceTree = "<group>"; };
 		FEF1A9D91B1C8F1C0051C636 /* MultiChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiChoiceViewController.m; sourceTree = "<group>"; };
 		FEF1A9DB1B1C91350051C636 /* SingleDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleDetailsViewController.h; sourceTree = "<group>"; };
@@ -317,6 +333,14 @@
 				FEFA60341BA44D7B005CEAD0 /* nomal.png */,
 				FEFA60351BA44D7B005CEAD0 /* select_multi.png */,
 				FEFA60361BA44D7B005CEAD0 /* select_single.png */,
+				FEE31F3F1BABF6CC0083A6F3 /* Icon-60@2x.png */,
+				FEE31F401BABF6CC0083A6F3 /* Icon-60@3x.png */,
+				FEE31F411BABF6CC0083A6F3 /* Icon-Small-40.png */,
+				FEE31F421BABF6CC0083A6F3 /* Icon-Small-40@2x.png */,
+				FEE31F431BABF6CC0083A6F3 /* Icon-Small-40@3x.png */,
+				FEE31F441BABF6CC0083A6F3 /* Icon-Small.png */,
+				FEE31F451BABF6CC0083A6F3 /* Icon-Small@2x.png */,
+				FEE31F461BABF6CC0083A6F3 /* Icon-Small@3x.png */,
 			);
 			name = Image;
 			path = ..;
@@ -380,16 +404,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEFA5FD91B9964B1005CEAD0 /* toto.db in Resources */,
+				FEE31F4A1BABF6CC0083A6F3 /* Icon-Small-40@2x.png in Resources */,
+				FEE31F4E1BABF6CC0083A6F3 /* Icon-Small@3x.png in Resources */,
+				FEE31F4B1BABF6CC0083A6F3 /* Icon-Small-40@3x.png in Resources */,
+				FEE31F4D1BABF6CC0083A6F3 /* Icon-Small@2x.png in Resources */,
 				FE4511FE1B482C47006CBEB1 /* kashan01.mp3 in Resources */,
+				FEE31F491BABF6CC0083A6F3 /* Icon-Small-40.png in Resources */,
 				FEE31F2E1BABE3570083A6F3 /* TotoRanLogo.png in Resources */,
 				FE37AF431B0AD7DC00D24C51 /* Main.storyboard in Resources */,
 				FEFA60371BA44D7B005CEAD0 /* nomal.png in Resources */,
 				FEFA5FDB1B99ACBB005CEAD0 /* erase.wav in Resources */,
 				FEFA60381BA44D7B005CEAD0 /* select_multi.png in Resources */,
+				FEE31F4C1BABF6CC0083A6F3 /* Icon-Small.png in Resources */,
 				FE37AF481B0AD7DC00D24C51 /* LaunchScreen.xib in Resources */,
 				FEFA60391BA44D7B005CEAD0 /* select_single.png in Resources */,
+				FEE31F481BABF6CC0083A6F3 /* Icon-60@3x.png in Resources */,
 				FE37AF451B0AD7DC00D24C51 /* Images.xcassets in Resources */,
 				FEFA60261B9C8127005CEAD0 /* SVProgressHUD.bundle in Resources */,
+				FEE31F471BABF6CC0083A6F3 /* Icon-60@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
