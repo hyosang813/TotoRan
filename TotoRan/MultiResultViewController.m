@@ -10,10 +10,6 @@
 
 #define TEXTVIEW_RECT CGRectMake(20, 70, self.view.bounds.size.width - 40 , (self.view.bounds.size.height / 10) * 5)
 
-//#define BTNRECT_RDC CGRectMake(self.view.bounds.size.width / 2 - 75, (self.view.bounds.size.height / 10) * 7, 150, 30)
-//#define BTNRECT_POP CGRectMake(self.view.bounds.size.width / 2 - 75, (self.view.bounds.size.height / 10) * 7.5, 150, 30)
-//#define BTNRECT_COPY CGRectMake(self.view.bounds.size.width / 2 - 75, (self.view.bounds.size.height / 10) * 8, 150, 30)
-
 #define BTNRECT_RDC CGRectMake((self.view.bounds.size.width / 4) / 4, (self.view.bounds.size.height / 10) * 7, self.view.bounds.size.width / 4, self.view.bounds.size.height / 15)
 #define BTNRECT_POP CGRectMake(((self.view.bounds.size.width / 4) / 4) * 2 + (self.view.bounds.size.width / 4), (self.view.bounds.size.height / 10) * 7, self.view.bounds.size.width / 4, self.view.bounds.size.height / 15)
 #define BTNRECT_COPY CGRectMake(((self.view.bounds.size.width / 4) / 4) * 3 + ((self.view.bounds.size.width / 4) * 2), (self.view.bounds.size.height / 10) * 7, self.view.bounds.size.width / 4, self.view.bounds.size.height / 15)

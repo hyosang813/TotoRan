@@ -12,6 +12,8 @@
 #define BODDS 1
 #define URLSTRING @"http://tobakushi.net/toto/tototimes/bg_%@.html"
 
+enum {ZERO, ONE, TWO, THREE, SIX = 6, MAX = 39};
+
 @implementation GetRateBook
 {
     NSMutableData *receivedData; //html取得データ
@@ -39,14 +41,10 @@
     NSString *tmpKaisu = [NSString stringWithString:kaisu];
     
     //回数は0が頭についてるが、賭博士のソースは０無しにしなきゃいけない。　めんどくせえ・・・
-    if ([[tmpKaisu substringToIndex:1] isEqualToString:@"0"]) tmpKaisu = [tmpKaisu substringWithRange:NSMakeRange(1, 3)];
+    if ([[tmpKaisu substringToIndex:1] isEqualToString:@"0"]) tmpKaisu = [tmpKaisu substringWithRange:NSMakeRange(ONE, THREE)];
 
-//    //テスト用にすでにbODDS存在してる回を引数に
-//    NSString *urlString = [NSString stringWithFormat:URLSTRING, @"794"];
-    
+    //URL通信開始
     NSString *urlString = [NSString stringWithFormat:URLSTRING, tmpKaisu];
-    
-    
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -97,15 +95,12 @@
             NSString *tmpData = [[tdNode contents] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             
             //後ろの「%」を外す
-            tmpData = [tmpData substringWithRange:NSMakeRange(0, tmpData.length - 1)];
+            tmpData = [tmpData substringWithRange:NSMakeRange(ZERO, tmpData.length - ONE)];
             
             //パーセントの値を格納
             [sendTmpData addObject:tmpData];
         }
     }
-    
-//    BIG開催なしでNot Foundが帰ってきた場合はここ以降するー　※ゴミが帰ってくる場合を考慮して対象カウントを５にしている　※やっぱり兎にも角にもbODDSがなければ「0.0を登録する」
-//    if (sendTmpData.count < DATANOTHING) return;
     
     //DB登録データ用Array
     NSMutableArray *sendData = [NSMutableArray array];
@@ -113,14 +108,14 @@
     
     //bODDSデータがまだ賭博士上に無い場合は「0.0」を登録する仕様に変更（2015.09.04）
     if (sendTmpData.count < DATANOTHING) {
-        for (int i = 0; i < 39; i++) {
+        for (int i = ZERO; i < MAX; i++) {
             [sendData addObject:@"0.0"];
         }
     } else {
         //totoの支持率データを省いてbODDSデータだけにする　「−3」は１４枠のデータが不要なため
-        for (int i = 0; i < sendTmpData.count - 3; i++) {
+        for (int i = ZERO; i < sendTmpData.count - THREE; i++) {
             //modが0,1,2はスルー、3,4,5は格納
-            if (i % 6 > 2) [sendData addObject:sendTmpData[i]];
+            if (i % SIX > TWO) [sendData addObject:sendTmpData[i]];
         }
     }
     

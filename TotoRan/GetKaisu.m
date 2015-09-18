@@ -8,6 +8,10 @@
 
 #import "GetKaisu.h"
 
+#define FOUR 4
+#define SCHELENGTH 15
+#define SCHESTRING @"/toto/schedule/"
+
 @implementation GetKaisu
 {
     NSMutableData *receivedData; //html取得データ
@@ -30,7 +34,6 @@
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        
     if (!connection) {
         NSLog(@"Connection error");
     }
@@ -41,6 +44,7 @@
  URLを引数にするとNSStringのソースを返すクラス
  引数に開催回数を与えるとか、ソースは解析済みのNSStringを返すとかの機能をつけるかどうかは要検討
  */
+
 #pragma mark - URLConnection系のデリゲートメソッド
 //Connection成功時
 - (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -76,9 +80,8 @@
     //条件に合致したら回数を抽出してArrayに格納
     for (HTMLNode *node in aNodes) {
         NSString *tmpText = [node getAttributeNamed:@"href"];
-        if ([tmpText hasPrefix:@"/toto/schedule/"] && tmpText.length > 15) {
-            NSLog(@"%@",tmpText);
-            [kaisu addObject:[tmpText substringWithRange:NSMakeRange(15, 4)]];
+        if ([tmpText hasPrefix:SCHESTRING] && tmpText.length > SCHELENGTH) {
+            [kaisu addObject:[tmpText substringWithRange:NSMakeRange(SCHELENGTH, FOUR)]];
         }
     }
     
@@ -92,8 +95,6 @@
         GetKaisuDetail *detail = [GetKaisuDetail new];
         [detail parseDate:kaisu];
     }
-
-    
 }
 
 //エラー時

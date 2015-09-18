@@ -30,8 +30,9 @@
 #define DATEFORMAT2 @"%Y年%m月%d日 %H時00分時点"
 #define DATEFORMAT3 @"%Y年%m月%d日 %H時%M分締切"
 
-enum {KAISU, START_DATE, END_DATE, TEAM_START, TEAM_END=28};
+enum {KAISU, START_DATE, END_DATE, TEAM_START, TEAM_END = 28};
 enum {TOTO, BODDS};
+enum {ZERO, ONE, TWO, THREE, MAX = 39};
 
 
 @implementation ControllDataBase
@@ -49,7 +50,7 @@ enum {TOTO, BODDS};
     if (self) {
         // パスの取得
         NSArray *arr = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        path = [arr[0] stringByAppendingPathComponent:DBNAME];
+        path = [arr[ZERO] stringByAppendingPathComponent:DBNAME];
         
         //totoかbODDSかの区別用データ準備
         typeHome = @[@"home_rate", @"home_rate_b"];
@@ -74,7 +75,7 @@ enum {TOTO, BODDS};
     //結果を１件に絞ってるのでwhileで回す必要なし
     [result next];
     
-    if( [result intForColumnIndex:0] == 0 ){
+    if([result intForColumnIndex:ZERO] == ZERO){
         // 登録データ数が０、もしくはすべての開催データが古い場合は取得し直すのでテーブルデータを全削除しておく
         if (![mydb executeUpdate:DELETE_QUERY_KAISU]) NSLog(@"kaisu table delete error!!!");
         if (![mydb executeUpdate:DELETE_QUERY_KUMIAWASE]) NSLog(@"kaisu table delete error!!!");
@@ -109,9 +110,9 @@ enum {TOTO, BODDS};
     }
     
     //KUMIAWASEテーブルにインサート（開催回数、枠番号、ホームチーム名、アウェイチーム名）
-    int wakuCount = 1;
-    for (int i = TEAM_START; i <= TEAM_END; i += 2) {
-        NSString *insertQueryKumiawase = [NSString stringWithFormat:INSERT_QUERY_KUMIAWASE, data[KAISU], wakuCount, data[i], data[i + 1]];
+    int wakuCount = ONE;
+    for (int i = TEAM_START; i <= TEAM_END; i += TWO) {
+        NSString *insertQueryKumiawase = [NSString stringWithFormat:INSERT_QUERY_KUMIAWASE, data[KAISU], wakuCount, data[i], data[i + ONE]];
         if (![mydb executeUpdate:insertQueryKumiawase]) {
             NSLog(@"kumiawase table insert error!!!");
             return NO;
@@ -141,8 +142,8 @@ enum {TOTO, BODDS};
     NSString *shijiType = type == TOTO ? UPDATE_QUERY_KUMIAWASE_TOTO : UPDATE_QUERY_KUMIAWASE_BOOK;
 
     
-    for (int i = 1; i <= 39; i += 3) {
-        NSString *updateQueryKumiawase = [NSString stringWithFormat:shijiType, data[i], data[i + 1], data[i + 2], wakuCount, data[KAISU]];
+    for (int i = ONE; i <= MAX; i += THREE) {
+        NSString *updateQueryKumiawase = [NSString stringWithFormat:shijiType, data[i], data[i + ONE], data[i + TWO], wakuCount, data[KAISU]];
         if (![mydb executeUpdate:updateQueryKumiawase]) {
             NSLog(@"kumiawase table update error!!!");
             return NO;
@@ -184,7 +185,7 @@ enum {TOTO, BODDS};
 //現在開催中の回はある？
 - (int)returnKaisaiYesNo
 {
-    int returnValue = 0;
+    int returnValue = ZERO;
     
     // データベースオブジェクトの作成
     FMDatabase *mydb = [FMDatabase databaseWithPath:path];
@@ -199,7 +200,7 @@ enum {TOTO, BODDS};
     [result next];
     
     //返すNSString
-    returnValue = [result intForColumnIndex:0];
+    returnValue = [result intForColumnIndex:ZERO];
     
     //ResultSetとデータベースのクローズ
     [result close];
@@ -227,8 +228,7 @@ enum {TOTO, BODDS};
     [result next];
     
     //取得日が埋まってたり、同日だった場合はnilを返して支持率データは取得しない
-    if( [result intForColumnIndex:0] == 0 ){
-        
+    if([result intForColumnIndex:ZERO] == ZERO){
         [mydb close];
         [result close];
         return nil;
@@ -239,10 +239,6 @@ enum {TOTO, BODDS};
     [mydb close];
     
     return returnData;
-    
-    //bODDSについての取得ロジックは再考慮必要
-    //だいたい木曜の深夜に更新されるが、うまいこと頻繁に取得しに行かなくてすむ条件が見当たらない
-    //カレンダーテーブル使用して「木曜か金曜だったら」みたいな条件で絞る？？？？？？？？
 }
 
 //初回起動時にデータが１３件そろってるかどうか確認
@@ -261,14 +257,13 @@ enum {TOTO, BODDS};
     [result next];
 
     //返す結果を変数に格納
-    int returnInt = [result intForColumnIndex:0];
+    int returnInt = [result intForColumnIndex:ZERO];
     
     //ResultSetとデータベースのクローズ
     [result close];
     [mydb close];
     
     return returnInt;
-
 }
 
 //組み合わせデータを返す
@@ -396,7 +391,7 @@ enum {TOTO, BODDS};
     [result next];
     
     //返す結果を変数に格納
-    int returnInt = [result intForColumnIndex:0];
+    int returnInt = [result intForColumnIndex:ZERO];
     
     //ResultSetとデータベースのクローズ
     [result close];

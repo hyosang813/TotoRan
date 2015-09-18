@@ -10,21 +10,6 @@
 
 #define MAX_COUNT 13
 
-//#define HYOUDAI_LABEL_RECT CGRectMake(15, 70, 280, 40)
-//#define HOME_LABEL_RECT CGRectMake(30, 115, 160, 35)
-//#define DRAW_LABEL_RECT CGRectMake(30, 155, 160, 35)
-//#define AWAY_LABEL_RECT CGRectMake(30, 195, 160, 35)
-//#define UNIT_LABEL_RECT CGRectMake(15, 240, 70, 35)
-//
-//#define HOME_TXTFLD_RECT CGRectMake(195, 115, 60, 35)
-//#define DRAW_TXTFLD_RECT CGRectMake(195, 155, 60, 35)
-//#define AWAY_TXTFLD_RECT CGRectMake(195, 195, 60, 35)
-//#define UNIT_TXTFLD_RECT CGRectMake(90, 240, 60, 35)
-//
-//#define HOME_LABEL_IJOU_RECT CGRectMake(260, 115, 50, 35)
-//#define DRAW_LABEL_IJOU_RECT CGRectMake(260, 155, 50, 35)
-//#define AWAY_LABEL_IJOU_RECT CGRectMake(260, 195, 50, 35)
-
 #define HYOUDAI_LABEL_RECT CGRectMake(15, 70, (self.view.bounds.size.width / 8) * 7, self.view.bounds.size.height / 12)
 #define HOME_LABEL_RECT CGRectMake(30, (self.view.bounds.size.height / 12) * 1 + 70, (self.view.bounds.size.width / 8) * 4, self.view.bounds.size.height / 12)
 #define DRAW_LABEL_RECT CGRectMake(30, (self.view.bounds.size.height / 12) * 2 + 70 + 5, (self.view.bounds.size.width / 8) * 4, self.view.bounds.size.height / 12)
@@ -63,7 +48,6 @@ enum {LABEL_IJOU_HOME = 301, LABEL_IJOU_DRAW, LABEL_IJOU_AWAY};
     int awayCount; //アウェイ(2)の数
     int unitMax; //口数の最大数
     int toolBarnum; //直前に選択されたピッカー記憶用
-//    int maxCount;  //選択できる最大数
     
     NSArray *homePickerArray; //ホームのピッカーラベル
     NSArray *drawPickerArray; //ドローのピッカーラベル
@@ -84,7 +68,6 @@ enum {LABEL_IJOU_HOME = 301, LABEL_IJOU_DRAW, LABEL_IJOU_AWAY};
     UIToolbar *pickerToolBar; //「OK」ボタンのついたツールバー
     
     NSMutableArray *tapArray;  //タップされた値(NSNumber)を格納するArray
-//    NSMutableArray *randArray; //ランダムに抽出された各数を格納するArray
     NSMutableArray *tapCountArray; //タップされたホーム、ドロー、アウェイ、nullのそれぞれの数を格納
     NSMutableArray *pickerCountArray; //ピッカーで選択されたホーム、ドロー、アウェイのそれぞれの数を格納
     
@@ -576,9 +559,6 @@ enum {LABEL_IJOU_HOME = 301, LABEL_IJOU_DRAW, LABEL_IJOU_AWAY};
     //ランダム値を取得
     GetRandomSingle *grs = [GetRandomSingle new];
     NSMutableArray *randomValue = [grs returnRandomValue:tapArray tapCountArray:tapCountArray pickerCountArray:pickerCountArray unitNum:[unitCountTextField.text intValue]];
-        
-//    NSLog(@"=======================================================");
-//    NSLog(@"%@", randomValue);
     
     //判定ロジックをかます
     HanteiLogic *ht = [HanteiLogic new];

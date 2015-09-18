@@ -19,12 +19,24 @@
 #define ROOP_AN_MESSAGE1 @"何かしらの異常が発生しました\nアプリを再起動してください\n※Jリーグシーズンオフ中の場合はデータがないので起動できません"
 #define ROOP_AN_MESSAGE2 @"何かしらの異常が発生しました\nアプリを再起動してください"
 #define NOT_KAISAI_MESSAGE @"現在開催中のtotoはありません"
+#define FOUR_WIDTH 320.0
+#define SIX_WIDTH 375.0
+#define SIXPLUS_WIDTH 414.0
+#define FIVE_HEIGHT 960
+#define BOARD_WITH 3.0
+#define FOUR_FONT 12
+#define FIVE_FONT 14
+#define SIX_FONT 16
+#define SIXPLUS_FONT 18
+#define SLEEP_TIME 3.0
+#define WAKU_COUNT 13
 
 enum {TOTO, BODDS};
 enum {SINGLE = 101, MULTI};
+enum {ZERO, ONE, TWO, THREE};
+
 
 @interface newRootViewController ()
-
 @end
 
 @implementation newRootViewController
@@ -42,7 +54,7 @@ enum {SINGLE = 101, MULTI};
     if (self) {
         abnomalFlg = NO;
         abnomalMessage = nil;
-        fontSizeDispatch = 0;
+        fontSizeDispatch = ZERO;
     }
     return self;
 }
@@ -57,16 +69,16 @@ enum {SINGLE = 101, MULTI};
     //機種を画面サイズ幅で制御 4シリーズと5シリーズは320.0、6は375.0、6+は414.0　※6sシリーズを考慮すっぺ
     float widthSize = self.view.bounds.size.width;
     float HeightSize = self.view.bounds.size.height;
-    if (widthSize <= 320.0) {
-        if (HeightSize <= 960) {
-            fontSizeDispatch = 12;
+    if (widthSize <= FOUR_WIDTH) {
+        if (HeightSize <= FIVE_HEIGHT) {
+            fontSizeDispatch = FOUR_FONT;
         } else {
-            fontSizeDispatch = 14;
+            fontSizeDispatch = FIVE_FONT;
         }
-    } else if (widthSize >= 375.0 && 414.0 > widthSize) {
-        fontSizeDispatch = 16;
+    } else if (widthSize >= SIX_WIDTH && SIXPLUS_WIDTH > widthSize) {
+        fontSizeDispatch = SIX_FONT;
     } else {
-        fontSizeDispatch = 18;
+        fontSizeDispatch = SIXPLUS_FONT;
     }
     
     //ロゴ
@@ -91,10 +103,10 @@ enum {SINGLE = 101, MULTI};
     [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     [btn setTitle:titile forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(btnPush:) forControlEvents:UIControlEventTouchUpInside];
-    [btn.titleLabel setFont:[UIFont systemFontOfSize:fontSizeDispatch + 12]];
+    [btn.titleLabel setFont:[UIFont systemFontOfSize:fontSizeDispatch + FOUR_FONT]];
     //縁取り
     [[btn layer] setBorderColor:[[UIColor blackColor] CGColor]]; // 枠線の色
-    [[btn layer] setBorderWidth:3.0]; // 枠線の太さ
+    [[btn layer] setBorderWidth:BOARD_WITH]; // 枠線の太さ
 
     return btn;
 }
@@ -104,7 +116,6 @@ enum {SINGLE = 101, MULTI};
 {
     //appDelegateをインスタンス化
     appDelegate = [[UIApplication sharedApplication] delegate];
-    
     
     //appDelegateにフォントサイズを格納
     appDelegate.fontSize = fontSizeDispatch;
@@ -124,11 +135,11 @@ enum {SINGLE = 101, MULTI};
     [SVProgressHUD showWithStatus:@"データ取得中..."];
     
     //別スレッドで各データの取得処理を行う
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, ZERO), ^{
     
         
         //とりあえずデータ取得猶予を持たせるために3秒スリープ
-        [NSThread sleepForTimeInterval:3.0];
+        [NSThread sleepForTimeInterval:SLEEP_TIME];
         
         //DBインスタンス生成
         ControllDataBase *dbControll = [ControllDataBase new];
@@ -144,11 +155,11 @@ enum {SINGLE = 101, MULTI};
         
         
         //現在開催中のtoto有無判断（開催中じゃなかったらメッセージ表示して終了）
-        int abnomalCount = 0;
+        int abnomalCount = ZERO;
         while (YES) {
-            if ([dbControll kaisuDataCountCheck] != 0) {
+            if ([dbControll kaisuDataCountCheck] != ZERO) {
                 //kaisuテーブルにinsertが始まってから少し猶予を持たせるためにさらに２秒スリープ
-                [NSThread sleepForTimeInterval:2.0];
+                [NSThread sleepForTimeInterval:SLEEP_TIME];
                 if (![dbControll returnKaisaiYesNo]) {
                     [self alertDisplay:NOT_KAISAI_MESSAGE];
                     abnomalFlg = YES;
@@ -169,12 +180,12 @@ enum {SINGLE = 101, MULTI};
         
         //DBにデータがある状態で以降の処理が必要なのでチェックロジックでループ
         NSString *kaisu = nil;
-        abnomalCount = 0;
+        abnomalCount = ZERO;
         while (YES) {
             kaisu = [dbControll returnKaisaiNow];
-            if ([kaisu length] > 0) {
+            if ([kaisu length] > ZERO) {
                 int drewCheck = [dbControll drewCheck:kaisu];
-                if (drewCheck == 13) break;
+                if (drewCheck == WAKU_COUNT) break;
             }
             abnomalCount++;
             //ループが１万回まわっても終わらなかったら異常として終了させる
@@ -217,13 +228,12 @@ enum {SINGLE = 101, MULTI};
             UILabel *kaisuLabel = [[UILabel alloc] initWithFrame:ENDDATE_LABEL_RECT];
             kaisuLabel.backgroundColor = [UIColor clearColor];
             kaisuLabel.textColor = [UIColor blackColor];
-            kaisuLabel.numberOfLines = 2;
+            kaisuLabel.numberOfLines = TWO;
             kaisuLabel.textAlignment = NSTextAlignmentCenter;
-            kaisuLabel.text = [NSString stringWithFormat:@"第%@回 toto\n%@", [kaisu substringWithRange:NSMakeRange(1,3)], [dbControll returnSaleEndDate]];
-            [kaisuLabel setFont:[UIFont systemFontOfSize:fontSizeDispatch - 3]];
+            kaisuLabel.text = [NSString stringWithFormat:@"第%@回 toto\n%@", [kaisu substringWithRange:NSMakeRange(ONE,THREE)], [dbControll returnSaleEndDate]];
+            [kaisuLabel setFont:[UIFont systemFontOfSize:fontSizeDispatch - THREE]];
             
             [self.view addSubview:kaisuLabel];
-            
         });
     });
 }

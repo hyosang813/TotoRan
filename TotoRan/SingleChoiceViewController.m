@@ -20,7 +20,6 @@
 #define CLEAR_HEIGHT 50 //選択解除ボタンheight
 
 @interface SingleChoiceViewController ()
-
 @end
 
 @implementation SingleChoiceViewController

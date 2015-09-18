@@ -94,13 +94,6 @@
                 }
             }
         }
-        
-//        for (NSMutableArray *arr in arrayParentCopy) {
-//            NSLog(@"%@,%@,%@,%@", arr[0],arr[1],arr[2],arr[3]);
-//        }
-//        
-//        NSLog(@"===================================================");
-        
     }
     
     //タップダブル(トリプル昇格して減る場合もあり)以上のピッカーダブルが必要な場合はランダムでトリプル枠を増やす
@@ -130,7 +123,6 @@
                         break;
                     }
                 }
-                
             }
         }
         
@@ -140,7 +132,7 @@
             //102抽選してその場所がNULLじゃなかったら再抽選
             int promNum = arc4random() % 3;
             if (![promNumArray[i][promNum] isEqual:[NSNull null]]) {
-                --i;
+                i--;
                 continue;
             }
             
@@ -160,14 +152,6 @@
             //ダブルへの昇格
             promNumArray[i][3] = [NSNumber numberWithInt:2];
         }
-
-        
-//        for (NSMutableArray *arr in arrayParentCopy) {
-//            NSLog(@"%@,%@,%@,%@", arr[0],arr[1],arr[2],arr[3]);
-//        }
-//
-//        NSLog(@"===================================================");
-
     }
     
     //データ数は不要なので削除
@@ -175,7 +159,6 @@
         [arr removeLastObject];
     }
     
-    //返す
     return arrayParentCopy;
 }
 

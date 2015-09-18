@@ -9,7 +9,6 @@
 #import "PopReducViewController.h"
 
 #define CHECKLABELRECT CGRectMake(5, 5, 150, 30)
-//#define TOTOLABELRECT CGRectMake(5, 120, 150, 30)
 #define WIDTH_BASE 5.0
 
 enum {ZERO, TOTO, BOOK};

@@ -65,9 +65,6 @@
     //組み合わせ情報を取得
     appDelegate = [[UIApplication sharedApplication] delegate];
     NSArray *array = appDelegate.teamArray;
-    //    for (NSString *ary in array) {
-    //        NSLog(@"%@", ary);
-    //    }
     
     //選択解除ボタンのy座標を格納する変数
     int clearY = 0;
@@ -223,7 +220,6 @@
         //以降のスキップ
         return;
     }
-    
     
     MultiDetailsViewController *mdvc = [MultiDetailsViewController new];
     

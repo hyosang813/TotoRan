@@ -17,6 +17,7 @@
 #define HOUR_ORDER_END 19
 #define MINUTE_ORDER_START 17
 #define MINUTE_ORDER_END 22
+#define ZERO 0
 
 #define URLSTRING_DETAIL @"http://www.toto-dream.com/dci/I/IPA/IPA01.do?op=disptotoLotInfo&holdCntId="
 
@@ -43,16 +44,13 @@ enum {START, END, TEAM, TEAM_END=28};
     return self;
 }
 
-
 - (void)parseDate:(NSString *)kaisu;
 {
     kaiNum = kaisu;
     NSString *urlString = [URLSTRING_DETAIL stringByAppendingString:kaisu];
-    
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
     if (!connection) {
         NSLog(@"Connection error");
     }
@@ -97,10 +95,6 @@ enum {START, END, TEAM, TEAM_END=28};
     
     //totoの開催がなければ終了
     if (!totoFlg) return;
-
-    //開始日時と終了日時を抽出　（最初と２番目のデータがそれぞれに対応）
-    //組み合わせ情報も取得しときましょ (ホーム/アウェイで4番目から２９番目のデータまで)
-    //チーム名がフルだからDBに略名マスタ作ってマッピングしよっか
     
     //DBに登録させるデータ格納Arrayに最初は開催回数を格納
     NSMutableArray *sendData = [NSMutableArray array];
@@ -108,7 +102,7 @@ enum {START, END, TEAM, TEAM_END=28};
     
     //tdタグで絞って販売開始日時と販売終了日時、組み合わせを取得する準備をする
     NSArray *bNodes = [bodyNode findChildTags:@"td"];
-    int arrayCount = 0;
+    int arrayCount = ZERO;
 
     for (HTMLNode *bnode in bNodes) {
         if ([[bnode getAttributeNamed:@"class"] isEqualToString:@"type5"] || [[bnode getAttributeNamed:@"width"] isEqualToString:@"185"]) {
@@ -121,7 +115,6 @@ enum {START, END, TEAM, TEAM_END=28};
                 NSString *year = [tmpData substringWithRange:NSMakeRange(YEAR_ORDER, FOUR_PLACE)];
                 NSString *month = [tmpData substringWithRange:NSMakeRange(MONTH_ORDER, TWO_PLACE)];
                 NSString *day = [tmpData substringWithRange:NSMakeRange(DAY_ORDER, TWO_PLACE)];
-                
                 NSString *hour = nil;
                 NSString *minute = nil;
                 
@@ -143,7 +136,6 @@ enum {START, END, TEAM, TEAM_END=28};
             
             //最終枠の格納が終わったらループを抜ける
             if (arrayCount >= TEAM_END) break;
-         
             arrayCount++;
         }
     }

@@ -12,12 +12,6 @@
 #define MAX_COUNT_DOUBLE 8
 #define MAX_COUNT_TRIPLE 5
 
-//#define HYOUDAI_LABEL_RECT CGRectMake(15, 70, 280, 40)
-//#define DOUBLE_LABEL_RECT CGRectMake(30, 115, 160, 35)
-//#define TRIPLE_LABEL_RECT CGRectMake(30, 155, 160, 35)
-//#define DOUBLE_TXTFLD_RECT CGRectMake(195, 115, 60, 35)
-//#define TRIPLE_TXTFLD_RECT CGRectMake(195, 155, 60, 35)
-
 #define HYOUDAI_LABEL_RECT CGRectMake(15, 70, (self.view.bounds.size.width / 8) * 6, self.view.bounds.size.height / 12)
 #define DOUBLE_LABEL_RECT CGRectMake(30, (self.view.bounds.size.height / 12) * 1 + 70, (self.view.bounds.size.width / 8) * 4, self.view.bounds.size.height / 12)
 #define TRIPLE_LABEL_RECT CGRectMake(30, (self.view.bounds.size.height / 12) * 2 + 70 + 5, (self.view.bounds.size.width / 8) * 4, self.view.bounds.size.height / 12)
@@ -83,8 +77,6 @@ enum {DOUBLE_PICKER = 201, TRIPLE_PICKER}; //ピッカービューのtag
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"戻る" style:UIBarButtonItemStyleBordered target:self action:@selector(goBack)];
     self.navigationItem.leftBarButtonItem = backButton;
     
-    
-    
     //各ドラムに表示するセル数用配列の値をセット
     doublePickerArray = [self itemSet:self.doubleCount max:MAX_COUNT_DOUBLE];
     triplePickerArray = [self itemSet:self.tripleCount max:MAX_COUNT_TRIPLE];
@@ -123,7 +115,6 @@ enum {DOUBLE_PICKER = 201, TRIPLE_PICKER}; //ピッカービューのtag
 
     doubleCountTextField.inputAccessoryView = pickerToolBar;
     tripleCountTextField.inputAccessoryView = pickerToolBar;
-    
 }
 
 //ラベル生成メソッド

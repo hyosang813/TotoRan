@@ -41,9 +41,6 @@ enum {DRAW_VAL, HOME_VAL, AWAY_VAL};
             randAway = (arc4random() % ((maxBase - minBaseAway) + 1)) + minBaseAway;
             sum = randHome + randDraw + randAway;
         }
-        //    NSLog(@"home:%d", randHome);
-        //    NSLog(@"draw:%d", randDraw);
-        //    NSLog(@"away:%d", randAway);
 
         //ランダム値用のArrayを生成
         NSMutableArray *randArray = [NSMutableArray array];
@@ -61,15 +58,11 @@ enum {DRAW_VAL, HOME_VAL, AWAY_VAL};
             [randArray addObject:[NSNumber numberWithInt:AWAY_VAL]];
         }
 
-        //    NSLog(@"%@", randArray);
-
         //ランダム値をシャッフル
         for (int i = (int)randArray.count - 1; i > 0; i--) {
             int randomNum = arc4random() % i;
             [randArray exchangeObjectAtIndex:i withObjectAtIndex:randomNum];
         }
-
-        //    NSLog(@"%@", randArray);
 
         //tapArrayを値コピー
         NSMutableArray *returnArrayChild = [tapArray mutableCopy];
@@ -82,16 +75,11 @@ enum {DRAW_VAL, HOME_VAL, AWAY_VAL};
                 setCount++;
             }
         }
-
-        //    NSLog(@"%@", randArray);
-        //    NSLog(@"%@", tapArray);
-        //    NSLog(@"%@", returnArrayChild);
-
+        
         //返すArrayにaddobjectsする
         [returnArrayParent addObject:returnArrayChild];
     }
     
-    //とりあえずnil返して警告消しとこ
     return returnArrayParent;
 }
 

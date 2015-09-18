@@ -15,7 +15,6 @@
 #define C_HANTEI 5.0
 #define D_HANTEI 1.0
 #define E_HANTEI 0.01
-//#define F_HANTEI
 
 #define HOME 1
 #define DRAW 0
@@ -38,10 +37,6 @@
         for (int i = 0; i < hanteiTaisyou.count; i++) {
             int hanteiTaisyouIntValue = [hanteiTaisyou[i] intValue];
             averageToto = averageToto * ([appDelegete.rateArrayToto[i][hanteiTaisyouIntValue] floatValue] / 100);
-            
-            
-            //初回起動時にbODDSが反映されない！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！!!!!!!!!!!!!!!!!!!!!!!!!!!
-            //NSLog(@"%@", appDelegete.rateArrayBook[i][hanteiTaisyouIntValue]);
             
             //bODDSは数値があれば同じように処理
             if (![appDelegete.rateArrayBook[i][hanteiTaisyouIntValue] isEqualToString:@"--.--"]) {
@@ -159,10 +154,7 @@
             averageBook = 1;
         }
     }
-    
-//    NSLog(@"%@", returnArray);
-//    NSLog(@"==============================================");
-    
+ 
     //データが２個以上の場合はソート
     if (returnArray.count > 1) {
         
@@ -181,9 +173,6 @@
     for (NSMutableArray *arr in returnArray) {
         [arr removeObjectAtIndex:0];
     }
-    
-//    NSLog(@"%@", returnArray);
-    
     return returnArray;
 }
 

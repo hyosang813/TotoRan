@@ -12,6 +12,8 @@
 #define TOTO 0
 #define URLSTRING @"http://www.toto-dream.com/dci/I/IPC/IPC01.do?op=initVoteRate&holdCntId=%@&commodityId=01"
 
+enum {ZERO, ONE, TWO, THREE, FOUR, SIX = 6, MAX = 39};
+
 @implementation GetRateToto
 {
     NSMutableData *receivedData; //html取得データ
@@ -91,7 +93,7 @@
             tmpData = [tmpData substringWithRange:NSMakeRange(persentLoc.location - PERCENT_LOC, PERCENT_LOC)];
             
             //「（」が最初にあったら取り除いてあげる処理が必要(一桁支持率処理)
-            if ([[tmpData substringToIndex:1] isEqualToString:@"（"]) tmpData = [tmpData substringWithRange:NSMakeRange(1, 4)];
+            if ([[tmpData substringToIndex:ONE] isEqualToString:@"（"]) tmpData = [tmpData substringWithRange:NSMakeRange(ONE, FOUR)];
             
             //パーセントの値を格納
             [sendData addObject:tmpData];
