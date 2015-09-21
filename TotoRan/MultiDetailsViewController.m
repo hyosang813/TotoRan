@@ -306,6 +306,9 @@ enum {DOUBLE_PICKER = 201, TRIPLE_PICKER}; //ピッカービューのtag
 //次画面への遷移
 - (void)push:(UIButton *)button
 {
+    //ピッカーをしまう
+    [self hidePicker];
+    
     //現在開催回数と起動時開催回数が違う場合は警告表示
     ControllDataBase *dbControll = [ControllDataBase new];
     if (![appDelegate.kaisu isEqualToString:[dbControll returnKaisaiNow]]) {
