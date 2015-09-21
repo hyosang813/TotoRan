@@ -88,8 +88,8 @@
     if (414.0 <= self.view.bounds.size.width) adHeight += 10;
     nadView = [[NADView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - adHeight, 320, 50) isAdjustAdSize:YES];
     [nadView setIsOutputLog:NO];
-    [nadView setNendID:@"a6eca9dd074372c898dd1df549301f277c53f2b9" spotID:@"3172"];
-//    [nadView setNendID:@"c8bd9444e4a8061a10c867d45629ce252a17cd82" spotID:@"443087"]; リリース時は上のテストキーと取り替えること！！！！！！！！！！！！！！！！！！！
+//    [nadView setNendID:@"a6eca9dd074372c898dd1df549301f277c53f2b9" spotID:@"3172"];
+    [nadView setNendID:@"c8bd9444e4a8061a10c867d45629ce252a17cd82" spotID:@"443087"];
     nadView.delegate = self;
     [nadView setDelegate:self];
     [nadView load];
