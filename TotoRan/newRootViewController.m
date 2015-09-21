@@ -16,7 +16,7 @@
 #define BTNRECT_MULTI CGRectMake(WIDTH / 2 - ((WIDTH / 2) / 2), (HEIGHT / 8) * 5 - 10, WIDTH / 2, HEIGHT / 10)
 #define ENDDATE_LABEL_RECT CGRectMake(WIDTH / 2 - ((WIDTH * 0.75) / 2), (HEIGHT / 8) * 7 - 40, WIDTH * 0.75, 50)
 #define ROOP_AN_COUNT 10000
-#define ROOP_AN_MESSAGE1 @"何かしらの異常が発生しました\nアプリを再起動してください\n※Jリーグシーズンオフ中の場合はデータがないので起動できません"
+#define ROOP_AN_MESSAGE1 @"何かしらの異常が発生しました\nアプリを再起動してください\n※Jリーグシーズンオフ中はデータがないので起動できません"
 #define ROOP_AN_MESSAGE2 @"何かしらの異常が発生しました\nアプリを再起動してください"
 #define NOT_KAISAI_MESSAGE @"現在開催中のtotoはありません"
 #define FOUR_WIDTH 320.0
