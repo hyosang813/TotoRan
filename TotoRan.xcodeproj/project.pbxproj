@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FE00E7471B830455006B020B /* HanteiLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = FE00E7461B830455006B020B /* HanteiLogic.m */; };
 		FE00E74A1B841CD3006B020B /* GetRandomSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = FE00E7491B841CD3006B020B /* GetRandomSingle.m */; };
+		FE0EB2911BE2119900C022C0 /* toto.db in Resources */ = {isa = PBXBuildFile; fileRef = FE0EB2901BE2119900C022C0 /* toto.db */; };
 		FE3122DA1B0DFC0600AC11D5 /* GetKaisu.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3122D91B0DFC0600AC11D5 /* GetKaisu.m */; };
 		FE3122DD1B0E035900AC11D5 /* GetKaisuDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3122DC1B0E035900AC11D5 /* GetKaisuDetail.m */; };
 		FE3122E41B0F206C00AC11D5 /* ControllDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3122E31B0F206C00AC11D5 /* ControllDataBase.m */; };
@@ -31,24 +32,24 @@
 		FE37AF831B0AFCD000D24C51 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE37AF821B0AFCD000D24C51 /* libxml2.dylib */; };
 		FE4511FE1B482C47006CBEB1 /* kashan01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE4511FD1B482C47006CBEB1 /* kashan01.mp3 */; };
 		FE4512001B482D7C006CBEB1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE4511FF1B482D7C006CBEB1 /* AudioToolbox.framework */; };
-		FE4DFA641BAEF3DC003EBC6A /* Defaults-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE4DFA601BAEF3DC003EBC6A /* Defaults-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
-		FE4DFA651BAEF3DC003EBC6A /* Defaults-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE4DFA611BAEF3DC003EBC6A /* Defaults-667h@2x.png */; settings = {ASSET_TAGS = (); }; };
-		FE4DFA661BAEF3DC003EBC6A /* Defaults-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE4DFA621BAEF3DC003EBC6A /* Defaults-736h@3x.png */; settings = {ASSET_TAGS = (); }; };
-		FE4DFA671BAEF3DC003EBC6A /* Defaults@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE4DFA631BAEF3DC003EBC6A /* Defaults@2x.png */; settings = {ASSET_TAGS = (); }; };
+		FE4DFA641BAEF3DC003EBC6A /* Defaults-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE4DFA601BAEF3DC003EBC6A /* Defaults-568h@2x.png */; };
+		FE4DFA651BAEF3DC003EBC6A /* Defaults-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE4DFA611BAEF3DC003EBC6A /* Defaults-667h@2x.png */; };
+		FE4DFA661BAEF3DC003EBC6A /* Defaults-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE4DFA621BAEF3DC003EBC6A /* Defaults-736h@3x.png */; };
+		FE4DFA671BAEF3DC003EBC6A /* Defaults@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE4DFA631BAEF3DC003EBC6A /* Defaults@2x.png */; };
 		FE90E5691B8EC1A700DCEAF2 /* GetRandomMulti.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90E5681B8EC1A700DCEAF2 /* GetRandomMulti.m */; };
 		FE90E5741B90319600DCEAF2 /* MJPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90E5711B90319600DCEAF2 /* MJPopupBackgroundView.m */; };
 		FE90E5751B90319600DCEAF2 /* UIViewController+MJPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90E5731B90319600DCEAF2 /* UIViewController+MJPopupViewController.m */; };
 		FE90E5781B90351B00DCEAF2 /* PopHanteiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90E5771B90351B00DCEAF2 /* PopHanteiViewController.m */; };
-		FEE31F2E1BABE3570083A6F3 /* TotoRanLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F2D1BABE3570083A6F3 /* TotoRanLogo.png */; settings = {ASSET_TAGS = (); }; };
-		FEE31F471BABF6CC0083A6F3 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F3F1BABF6CC0083A6F3 /* Icon-60@2x.png */; settings = {ASSET_TAGS = (); }; };
-		FEE31F481BABF6CC0083A6F3 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F401BABF6CC0083A6F3 /* Icon-60@3x.png */; settings = {ASSET_TAGS = (); }; };
-		FEE31F491BABF6CC0083A6F3 /* Icon-Small-40.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F411BABF6CC0083A6F3 /* Icon-Small-40.png */; settings = {ASSET_TAGS = (); }; };
-		FEE31F4A1BABF6CC0083A6F3 /* Icon-Small-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F421BABF6CC0083A6F3 /* Icon-Small-40@2x.png */; settings = {ASSET_TAGS = (); }; };
-		FEE31F4B1BABF6CC0083A6F3 /* Icon-Small-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F431BABF6CC0083A6F3 /* Icon-Small-40@3x.png */; settings = {ASSET_TAGS = (); }; };
-		FEE31F4C1BABF6CC0083A6F3 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F441BABF6CC0083A6F3 /* Icon-Small.png */; settings = {ASSET_TAGS = (); }; };
-		FEE31F4D1BABF6CC0083A6F3 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F451BABF6CC0083A6F3 /* Icon-Small@2x.png */; settings = {ASSET_TAGS = (); }; };
-		FEE31F4E1BABF6CC0083A6F3 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F461BABF6CC0083A6F3 /* Icon-Small@3x.png */; settings = {ASSET_TAGS = (); }; };
-		FEE31F511BAC00E60083A6F3 /* libNendAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE31F4F1BAC00E60083A6F3 /* libNendAd.a */; settings = {ASSET_TAGS = (); }; };
+		FEE31F2E1BABE3570083A6F3 /* TotoRanLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F2D1BABE3570083A6F3 /* TotoRanLogo.png */; };
+		FEE31F471BABF6CC0083A6F3 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F3F1BABF6CC0083A6F3 /* Icon-60@2x.png */; };
+		FEE31F481BABF6CC0083A6F3 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F401BABF6CC0083A6F3 /* Icon-60@3x.png */; };
+		FEE31F491BABF6CC0083A6F3 /* Icon-Small-40.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F411BABF6CC0083A6F3 /* Icon-Small-40.png */; };
+		FEE31F4A1BABF6CC0083A6F3 /* Icon-Small-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F421BABF6CC0083A6F3 /* Icon-Small-40@2x.png */; };
+		FEE31F4B1BABF6CC0083A6F3 /* Icon-Small-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F431BABF6CC0083A6F3 /* Icon-Small-40@3x.png */; };
+		FEE31F4C1BABF6CC0083A6F3 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F441BABF6CC0083A6F3 /* Icon-Small.png */; };
+		FEE31F4D1BABF6CC0083A6F3 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F451BABF6CC0083A6F3 /* Icon-Small@2x.png */; };
+		FEE31F4E1BABF6CC0083A6F3 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F461BABF6CC0083A6F3 /* Icon-Small@3x.png */; };
+		FEE31F511BAC00E60083A6F3 /* libNendAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE31F4F1BAC00E60083A6F3 /* libNendAd.a */; };
 		FEF1A9DA1B1C8F1C0051C636 /* MultiChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF1A9D91B1C8F1C0051C636 /* MultiChoiceViewController.m */; };
 		FEF1A9DD1B1C91350051C636 /* SingleDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF1A9DC1B1C91350051C636 /* SingleDetailsViewController.m */; };
 		FEF1A9E01B1C915E0051C636 /* MultiDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF1A9DF1B1C915E0051C636 /* MultiDetailsViewController.m */; };
@@ -56,7 +57,6 @@
 		FEF1A9EB1B1EF1F70051C636 /* MultiResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF1A9EA1B1EF1F70051C636 /* MultiResultViewController.m */; };
 		FEF5F73B1B9438A300E60359 /* PopReducViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF5F73A1B9438A300E60359 /* PopReducViewController.m */; };
 		FEF5F73E1B948C1300E60359 /* CTCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF5F73D1B948C1300E60359 /* CTCheckbox.m */; };
-		FEFA5FD91B9964B1005CEAD0 /* toto.db in Resources */ = {isa = PBXBuildFile; fileRef = FEFA5FD81B9964B1005CEAD0 /* toto.db */; };
 		FEFA5FDB1B99ACBB005CEAD0 /* erase.wav in Resources */ = {isa = PBXBuildFile; fileRef = FEFA5FDA1B99ACBB005CEAD0 /* erase.wav */; };
 		FEFA601E1B9C76B2005CEAD0 /* newRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFA601D1B9C76B2005CEAD0 /* newRootViewController.m */; };
 		FEFA60251B9C8127005CEAD0 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFA60201B9C8127005CEAD0 /* SVIndefiniteAnimatedView.m */; };
@@ -77,6 +77,7 @@
 		FE00E7461B830455006B020B /* HanteiLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HanteiLogic.m; sourceTree = "<group>"; };
 		FE00E7481B841CD3006B020B /* GetRandomSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRandomSingle.h; sourceTree = "<group>"; };
 		FE00E7491B841CD3006B020B /* GetRandomSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetRandomSingle.m; sourceTree = "<group>"; };
+		FE0EB2901BE2119900C022C0 /* toto.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = toto.db; sourceTree = "<group>"; };
 		FE3122D81B0DFC0600AC11D5 /* GetKaisu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetKaisu.h; sourceTree = "<group>"; };
 		FE3122D91B0DFC0600AC11D5 /* GetKaisu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetKaisu.m; sourceTree = "<group>"; };
 		FE3122DB1B0E035900AC11D5 /* GetKaisuDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetKaisuDetail.h; sourceTree = "<group>"; };
@@ -153,7 +154,6 @@
 		FEF5F73A1B9438A300E60359 /* PopReducViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopReducViewController.m; sourceTree = "<group>"; };
 		FEF5F73C1B948C1300E60359 /* CTCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTCheckbox.h; sourceTree = "<group>"; };
 		FEF5F73D1B948C1300E60359 /* CTCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTCheckbox.m; sourceTree = "<group>"; };
-		FEFA5FD81B9964B1005CEAD0 /* toto.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = toto.db; sourceTree = "<group>"; };
 		FEFA5FDA1B99ACBB005CEAD0 /* erase.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = erase.wav; sourceTree = "<group>"; };
 		FEFA601C1B9C76B2005CEAD0 /* newRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newRootViewController.h; sourceTree = "<group>"; };
 		FEFA601D1B9C76B2005CEAD0 /* newRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newRootViewController.m; sourceTree = "<group>"; };
@@ -317,7 +317,7 @@
 		FE37AF6D1B0ADA1600D24C51 /* DB */ = {
 			isa = PBXGroup;
 			children = (
-				FEFA5FD81B9964B1005CEAD0 /* toto.db */,
+				FE0EB2901BE2119900C022C0 /* toto.db */,
 			);
 			name = DB;
 			sourceTree = "<group>";
@@ -413,7 +413,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEFA5FD91B9964B1005CEAD0 /* toto.db in Resources */,
 				FE4DFA661BAEF3DC003EBC6A /* Defaults-736h@3x.png in Resources */,
 				FEE31F4A1BABF6CC0083A6F3 /* Icon-Small-40@2x.png in Resources */,
 				FEE31F4E1BABF6CC0083A6F3 /* Icon-Small@3x.png in Resources */,
@@ -434,6 +433,7 @@
 				FEFA60391BA44D7B005CEAD0 /* select_single.png in Resources */,
 				FEE31F481BABF6CC0083A6F3 /* Icon-60@3x.png in Resources */,
 				FE37AF451B0AD7DC00D24C51 /* Images.xcassets in Resources */,
+				FE0EB2911BE2119900C022C0 /* toto.db in Resources */,
 				FEFA60261B9C8127005CEAD0 /* SVProgressHUD.bundle in Resources */,
 				FEE31F471BABF6CC0083A6F3 /* Icon-60@2x.png in Resources */,
 			);
