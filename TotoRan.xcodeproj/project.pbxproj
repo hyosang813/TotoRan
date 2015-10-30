@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		FE00E7471B830455006B020B /* HanteiLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = FE00E7461B830455006B020B /* HanteiLogic.m */; };
 		FE00E74A1B841CD3006B020B /* GetRandomSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = FE00E7491B841CD3006B020B /* GetRandomSingle.m */; };
-		FE0EB2911BE2119900C022C0 /* toto.db in Resources */ = {isa = PBXBuildFile; fileRef = FE0EB2901BE2119900C022C0 /* toto.db */; };
+		FE0EB2971BE3982200C022C0 /* toto.db in Resources */ = {isa = PBXBuildFile; fileRef = FE0EB2961BE3982200C022C0 /* toto.db */; };
 		FE3122DA1B0DFC0600AC11D5 /* GetKaisu.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3122D91B0DFC0600AC11D5 /* GetKaisu.m */; };
 		FE3122DD1B0E035900AC11D5 /* GetKaisuDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3122DC1B0E035900AC11D5 /* GetKaisuDetail.m */; };
 		FE3122E41B0F206C00AC11D5 /* ControllDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3122E31B0F206C00AC11D5 /* ControllDataBase.m */; };
@@ -77,7 +77,7 @@
 		FE00E7461B830455006B020B /* HanteiLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HanteiLogic.m; sourceTree = "<group>"; };
 		FE00E7481B841CD3006B020B /* GetRandomSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRandomSingle.h; sourceTree = "<group>"; };
 		FE00E7491B841CD3006B020B /* GetRandomSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetRandomSingle.m; sourceTree = "<group>"; };
-		FE0EB2901BE2119900C022C0 /* toto.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = toto.db; sourceTree = "<group>"; };
+		FE0EB2961BE3982200C022C0 /* toto.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = toto.db; sourceTree = "<group>"; };
 		FE3122D81B0DFC0600AC11D5 /* GetKaisu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetKaisu.h; sourceTree = "<group>"; };
 		FE3122D91B0DFC0600AC11D5 /* GetKaisu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetKaisu.m; sourceTree = "<group>"; };
 		FE3122DB1B0E035900AC11D5 /* GetKaisuDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetKaisuDetail.h; sourceTree = "<group>"; };
@@ -317,7 +317,7 @@
 		FE37AF6D1B0ADA1600D24C51 /* DB */ = {
 			isa = PBXGroup;
 			children = (
-				FE0EB2901BE2119900C022C0 /* toto.db */,
+				FE0EB2961BE3982200C022C0 /* toto.db */,
 			);
 			name = DB;
 			sourceTree = "<group>";
@@ -433,7 +433,7 @@
 				FEFA60391BA44D7B005CEAD0 /* select_single.png in Resources */,
 				FEE31F481BABF6CC0083A6F3 /* Icon-60@3x.png in Resources */,
 				FE37AF451B0AD7DC00D24C51 /* Images.xcassets in Resources */,
-				FE0EB2911BE2119900C022C0 /* toto.db in Resources */,
+				FE0EB2971BE3982200C022C0 /* toto.db in Resources */,
 				FEFA60261B9C8127005CEAD0 /* SVProgressHUD.bundle in Resources */,
 				FEE31F471BABF6CC0083A6F3 /* Icon-60@2x.png in Resources */,
 			);
