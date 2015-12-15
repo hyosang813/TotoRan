@@ -429,4 +429,22 @@ enum {ZERO, ONE, TWO, THREE, MAX = 39};
     return returnDate;
 }
 
+//組合せテーブルと支持率テーブルの内容をDELETE
+- (void)deleteTables
+{
+    // データベースオブジェクトの作成
+    FMDatabase *mydb = [FMDatabase databaseWithPath:path];
+    
+    // データベースのオープン
+    [mydb open];
+    
+    // テーブルデータを全削除しておく
+    if (![mydb executeUpdate:DELETE_QUERY_KAISU]) NSLog(@"kaisu table delete error!!!");
+    if (![mydb executeUpdate:DELETE_QUERY_KUMIAWASE]) NSLog(@"kaisu table delete error!!!");
+
+    //データベースのクローズ
+    [mydb close];
+
+}
+
 @end

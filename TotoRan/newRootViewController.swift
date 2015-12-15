@@ -40,17 +40,12 @@ class newRootViewController: UIViewController
         view.addSubview(logo)
         
         //ボタン
-        let singleBtn = makeButton("シングル選択", frame: RectMaker.singleBtnRect(), tag: TAG.SINGLE)
-        let multiBtn = makeButton("マルチ選択", frame: RectMaker.multiBtnRect(), tag: TAG.MULTI)
-        /*
-        さらにこの後でデータ再取得ボタンを生成する
-        ただしデータ再取得ボタンは当画面のViewWillAppearの各種処理が正常終了してないと使えないようにする必要がある
-        */
-        
-        
+        let singleBtn = makeButton("シングル選択", frame: RectMaker.singleBtnRect(), tag: TAG.SINGLE, color: UIColor.blackColor())
+        let multiBtn = makeButton("マルチ選択", frame: RectMaker.multiBtnRect(), tag: TAG.MULTI, color: UIColor.blackColor())
+        let reloadBtn = makeButton("データ再取得", frame: RectMaker.reloadBtnRect(), tag: TAG.RELOAD, color: UIColor.redColor())
         view.addSubview(singleBtn)
         view.addSubview(multiBtn)
-        /*さらにこの後でデータ再取得ボタンを配置する*/
+        view.addSubview(reloadBtn)
         
         //appDelegateにフォントサイズを格納
         appDelegate.fontSize = fontSizeDispatch
@@ -72,6 +67,12 @@ class newRootViewController: UIViewController
         //初回起動時以外はデータ取得しない ※強制再取得は別
         if appDelegate.bootFlg { return }
         
+        //データ再取得ボタン設置のため、取得処理を切り出した
+        fetchProcess()
+    }
+    
+    //データ再取得ボタン設置のため、取得処理を切り出したメソッド
+    func fetchProcess() {
         //データ取得中はインジケータ回し始める
         SVProgressHUD.showWithStatus(MESSAGE_STR.DATA_GETING, maskType: .Black)
         
@@ -141,15 +142,15 @@ class newRootViewController: UIViewController
                     self.abnomalMessage = MESSAGE_STR.ROOP_AN_MESSAGE2
                     return
                 }
-
+                
             }
-
+            
             //DBから現在開催回を取得してそれをキーに組み合わせデータ取得　※戻り値データはホームチーム１３チームの後にアウェイチーム１３チームの系２６オブジェクト
             self.appDelegate.teamArray = dbControll.returnKumiawase()
             
             //DBから現在開催回を取得してそれをキーに組み合わせtoto支持率データ取得　枠順(ホーム、ドロー、アウェイ)の３９オブジェクト
             self.appDelegate.rateArrayToto = dbControll.returnRate(ODDS.TOTO)
-
+            
             //DBから現在開催回を取得してそれをキーに組み合わせbODDS支持率データ取得　※まだデータがない時は「--.--」が返ってくる
             self.appDelegate.rateArrayBook = dbControll.returnRate(ODDS.BOOK)
             
@@ -171,24 +172,23 @@ class newRootViewController: UIViewController
                 kaisuLabel.text = "対象回：第\((self.appDelegate.kaisu as NSString).substringFromIndex(1))回 toto\n\(dbControll.returnSaleEndDate())"
                 kaisuLabel.font = UIFont.systemFontOfSize(CGFloat(self.fontSizeDispatch - FontSize.SYSTEMSIZE))
                 self.view.addSubview(kaisuLabel)
-                })
             })
-        
+        })
     }
 
     //ボタン生成メソッド
-    func makeButton(title: String, frame: CGRect, tag: Int) -> UIButton
+    func makeButton(title: String, frame: CGRect, tag: Int, color: UIColor) -> UIButton
     {
         let btn = UIButton(frame: frame)
         btn.tag = tag
-        btn.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        btn.setTitleColor(color, forState: .Normal)
         btn.setTitleColor(UIColor.lightGrayColor(), forState: .Highlighted)
         btn.setTitle(title, forState: .Normal)
         btn.addTarget(self, action: "btnPush:", forControlEvents: .TouchUpInside)
         btn.titleLabel?.font = UIFont.systemFontOfSize(CGFloat(fontSizeDispatch + FontSize.FOUR_FONT))
         
         //縁取り
-        btn.layer.borderColor = UIColor.blackColor().CGColor
+        btn.layer.borderColor = color.CGColor
         btn.layer.borderWidth = DisplaySize.BOARD_WITH
         
         return btn
@@ -211,10 +211,14 @@ class newRootViewController: UIViewController
             let mcvc = MultiChoiceViewController()
             ngcl = UINavigationController(rootViewController: mcvc)
         } else if button.tag == TAG.RELOAD {
-            //データ再取得
-            //ここじゃなくてアクションメソッド自体を分ける？？？
+            //DBインスタンス生成してkaisuテーブル、kumiawaseテーブルのデータ削除
+            let dbControll = ControllDataBase()
+            dbControll.deleteTables()
             
-            //画面遷移はないのでここでリターン
+            //データを再取得
+            fetchProcess()
+            
+            //画面遷移はなし
             return
         }
         

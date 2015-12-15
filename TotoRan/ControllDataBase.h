@@ -49,5 +49,8 @@
 //販売終了日を返す
 - (NSString *)returnSaleEndDate;
 
+//組合せテーブルと支持率テーブルの内容をDELETE
+- (void)deleteTables;
+
 @end
 
