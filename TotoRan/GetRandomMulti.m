@@ -129,9 +129,9 @@
         //ダブル枠への昇格（昇格させるためのホーム、ドロー、アウェイ抽選あり）
         for (int i = 0; i < promNumArray.count; i++) {
             
-            //102抽選してその場所がNULLじゃなかったら再抽選
+            //102抽選してその場所が9じゃなかったら再抽選
             int promNum = arc4random() % 3;
-            if (![promNumArray[i][promNum] isEqual:[NSNull null]]) {
+            if ([promNumArray[i][promNum] intValue] != 9) {
                 i--;
                 continue;
             }

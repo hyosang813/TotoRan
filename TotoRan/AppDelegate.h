@@ -24,5 +24,12 @@
 @property (nonatomic) BOOL abnomalFlg; //通信とDB作成失敗判断フラグ
 @property (nonatomic) BOOL bootFlg; //起動判断フラグ
 @property (nonatomic) int fontSize; //画面サイズ別フォントサイズ
+
+
+
+@property (strong, nonatomic) NSArray *boolArray; //プチ削減用BOOLデータ受け渡し
+
+
+
 @end
 

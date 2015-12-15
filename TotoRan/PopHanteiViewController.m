@@ -33,6 +33,9 @@ enum {ZERO, TOTO, BOOK};
     //デリゲート取得
     appDelegate = [[UIApplication sharedApplication] delegate];
     
+    //BoolArray情報をデリゲートから取得
+    self.checkBoolArray = appDelegate.boolArray;
+    
     //背景は黄色
     self.view.backgroundColor = [UIColor yellowColor];
     

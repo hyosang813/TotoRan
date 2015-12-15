@@ -25,6 +25,12 @@
 //口数×102の羅列(13個:NSNumber)の２次元配列が引数で、戻り値はそれに判定結果をつけたもの
 - (NSMutableArray *)returnHantei:(NSMutableArray *)returnArray
 {
+    //大元のarrayParentに影響を及ぼさないようにコピー
+    NSMutableArray *returnArrayCopy = [NSMutableArray array];
+    for (NSArray *arr in returnArray) {
+        NSMutableArray *tempArray = [NSMutableArray arrayWithArray:arr];
+        [returnArrayCopy addObject:tempArray];
+    }
     
     //支持率データをAppDelegateから取得する「appDelegete.rateArrayToto　appDelegete.rateArrayBook」
     AppDelegate *appDelegete = [[UIApplication sharedApplication] delegate];
@@ -33,7 +39,7 @@
     float averageBook = 1; //基準値で割る前のbook支持率積算用
     
     //判定
-    for (NSMutableArray *hanteiTaisyou in returnArray) {
+    for (NSMutableArray *hanteiTaisyou in returnArrayCopy) {
         for (int i = 0; i < hanteiTaisyou.count; i++) {
             int hanteiTaisyouIntValue = [hanteiTaisyou[i] intValue];
             averageToto = averageToto * ([appDelegete.rateArrayToto[i][hanteiTaisyouIntValue] floatValue] / 100);
@@ -156,24 +162,24 @@
     }
  
     //データが２個以上の場合はソート
-    if (returnArray.count > 1) {
+    if (returnArrayCopy.count > 1) {
         
         //teratailで教えてもらったスマートなソート方法
-        NSArray *sortArray = [returnArray sortedArrayUsingComparator:^(id obj1, id obj2) {
+        NSArray *sortArray = [returnArrayCopy sortedArrayUsingComparator:^(id obj1, id obj2) {
             NSArray *a = (NSArray*)obj1;
             NSArray *b = (NSArray*)obj2;
             return [[b firstObject] compare:[a firstObject]];
         }];
         
         //ソート後のArrayをreturnArrayに戻す
-        returnArray = [sortArray mutableCopy];
+        returnArrayCopy = [sortArray mutableCopy];
     }
     
     //ソート用の先頭データを削除
-    for (NSMutableArray *arr in returnArray) {
+    for (NSMutableArray *arr in returnArrayCopy) {
         [arr removeObjectAtIndex:0];
     }
-    return returnArray;
+    return returnArrayCopy;
 }
 
 @end

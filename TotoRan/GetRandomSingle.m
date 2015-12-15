@@ -13,7 +13,7 @@ enum {DRAW_VAL, HOME_VAL, AWAY_VAL};
 
 @implementation GetRandomSingle
 
-- (NSMutableArray *)returnRandomValue:(NSMutableArray *)tapArray tapCountArray:(NSMutableArray *)tapCountArray pickerCountArray:(NSMutableArray *)pickerCountArray unitNum:(int)unitNum
+- (NSMutableArray *)returnRandomValue:(NSMutableArray *)tapArray tapCountArray:(NSArray *)tapCountArray pickerCountArray:(NSArray *)pickerCountArray unitNum:(int)unitNum
 {
     //ランダムが必要な最高基本数を取得
     int maxBase = [[tapCountArray lastObject] intValue];
@@ -67,10 +67,10 @@ enum {DRAW_VAL, HOME_VAL, AWAY_VAL};
         //tapArrayを値コピー
         NSMutableArray *returnArrayChild = [tapArray mutableCopy];
 
-        //tapArrayのnilの箇所にシャッフルしたランダム値をセットしていく
+        //tapArrayのnilの箇所にシャッフルしたランダム値をセットしていく ※nilじゃなくて9に変更
         int setCount = 0;
         for (int i = 0; i < returnArrayChild.count; i++) {
-            if (returnArrayChild[i] == nil || [returnArrayChild[i] isEqual:[NSNull null]]) {
+            if ([returnArrayChild[i] intValue] == 9) {
                 [returnArrayChild replaceObjectAtIndex:i withObject:randArray[setCount]];
                 setCount++;
             }

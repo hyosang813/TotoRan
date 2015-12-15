@@ -27,41 +27,41 @@
     self.abnomalMessage = nil;
     
     //まずは通信可能判断
-    if (![self checkReachability]) {
+    if (![[self class] checkReachability]) {
         self.abnomalFlg = YES;
         self.abnomalMessage = NOT_COMU_MESSAGE;
         return YES;
     }
     
     //DB有る無し判断(初回起動)
-    if (![self createDataBase:DBNAME]) {
+    if (![[self class ]createDataBase:DBNAME]) {
         self.abnomalFlg = YES;
         self.abnomalMessage = NOT_DB_MESSAGE;
         return YES;
     }
 
-    //DBインスタンス生成
-    ControllDataBase *dbControll = [ControllDataBase new];
-    
-    //開催データ取得判断
-    if (![dbControll kaisaiDataCheck]){
-        //開催データの取得
-        GetKaisu *kaisaiData = [GetKaisu new];
-        [kaisaiData returnSourceString:KAISAI_URL];
-    }
-    
-    //支持率データ取得判断
-    NSString *judgeData = [dbControll rateUpdateJudge];
-    if (judgeData) {
-        GetRateToto *toto = [GetRateToto new];
-        [toto parseRate:judgeData];
-    }
+//    //DBインスタンス生成
+//    ControllDataBase *dbControll = [ControllDataBase new];
+//    
+//    //開催データ取得判断
+//    if (![dbControll kaisaiDataCheck]){
+//        //開催データの取得
+//        GetKaisu *kaisaiData = [GetKaisu new];
+//        [kaisaiData returnSourceString:KAISAI_URL];
+//    }
+//    
+//    //支持率データ取得判断
+//    NSString *judgeData = [dbControll rateUpdateJudge];
+//    if (judgeData) {
+//        GetRateToto *toto = [GetRateToto new];
+//        [toto parseRate:judgeData];
+//    }
     
     return YES;
 }
 
 #pragma mark - 通信可能判断メソッド
-- (BOOL)checkReachability
++ (BOOL)checkReachability
 {
     //通信可能チェック
     Reachability *curReach = [Reachability reachabilityForInternetConnection];
@@ -79,7 +79,7 @@
 
 #pragma mark - DB作成メソッド
 // 初期値を持ちつつ書き込めるデータベースを作る
-- (BOOL)createDataBase:(NSString *)dbName
++ (BOOL)createDataBase:(NSString *)dbName
 {
     // データベース名
     NSString *databaseName = dbName;

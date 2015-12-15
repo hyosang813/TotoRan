@@ -19,6 +19,10 @@ enum {ZEROCOUNT, SDCOUNT};
 @end
 
 @implementation PopReducViewController
+{
+    AppDelegate *appDelegate; //デリゲート
+    NSMutableArray *internalBoolArray; //移し換える
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,6 +33,22 @@ enum {ZEROCOUNT, SDCOUNT};
     //縁取り
     self.view.layer.borderWidth = 2;
     self.view.layer.borderColor = [[UIColor blackColor] CGColor];
+    
+    //デリゲート取得
+    appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    //BoolArray情報をデリゲートから取得
+//    self.checkBoolArray = appDelegate.boolArray;
+    
+    //self.reduceBoolArrayはswiftの型なので、boolArrayに一度移し換える
+    internalBoolArray = [NSMutableArray new];
+    for (NSArray *boolArray in appDelegate.boolArray){
+        NSMutableArray *childBoolArray = [NSMutableArray new];
+        for (NSNumber *boolNum in boolArray) {
+            [childBoolArray addObject:boolNum];
+        }
+        [internalBoolArray addObject:childBoolArray];
+    }
     
     //７掛けよ用にオリジナルの枠を取得
     CGRect original = self.view.frame;
@@ -56,7 +76,8 @@ enum {ZEROCOUNT, SDCOUNT};
         [self checkBoxMake:[NSString stringWithFormat:@"%d", i]
                       rect:CGRectMake(widthBase, heightBase, (self.view.bounds.size.width / 5), 30)
                        tag:i + 100
-                   checked:[self.checkBoolArray[ZERO][i] boolValue]];
+                   checked:[internalBoolArray[ZERO][i] boolValue]];
+//                   checked:[self.checkBoolArray[ZERO][i] boolValue]];
         widthBase += (self.view.bounds.size.width / 5);
         if (i == 4 && [self.checkArray[ZERO][ZERO] intValue] >= 5) {
             widthBase = WIDTH_BASE;
@@ -97,7 +118,8 @@ enum {ZEROCOUNT, SDCOUNT};
         [self checkBoxMake:self.checkArray[TOTO][i]
                       rect:CGRectMake(widthBase, heightBase, self.view.bounds.size.width / 5, 30)
                        tag:i + 200
-                   checked:[self.checkBoolArray[TOTO][i] boolValue]];
+                   checked:[internalBoolArray[TOTO][i] boolValue]];
+//                   checked:[self.checkBoolArray[TOTO][i] boolValue]];
         widthBase += self.view.bounds.size.width / 5;
         if (i == 4 && [self.checkArray[TOTO] count] >= 6) {
             widthBase = WIDTH_BASE;
@@ -130,7 +152,8 @@ enum {ZEROCOUNT, SDCOUNT};
             [self checkBoxMake:self.checkArray[BOOK][i]
                           rect:CGRectMake(widthBase, heightBase, self.view.bounds.size.width / 5, 30)
                            tag:i + 300
-                       checked:[self.checkBoolArray[BOOK][i] boolValue]];
+                       checked:[internalBoolArray[BOOK][i] boolValue]];
+//                       checked:[self.checkBoolArray[BOOK][i] boolValue]];
             widthBase += self.view.bounds.size.width / 5;
             if (i == 4) {
                 widthBase = WIDTH_BASE;
@@ -179,23 +202,39 @@ enum {ZEROCOUNT, SDCOUNT};
 - (void)boxChecked:(CTCheckbox *)box
 {
     if (100 <= box.tag && box.tag <= 109) {
-        BOOL checkStatus = [self.checkBoolArray[ZERO][box.tag - 100] boolValue];
+        BOOL checkStatus = [internalBoolArray[ZERO][box.tag - 100] boolValue];
         checkStatus = !checkStatus;
-        self.checkBoolArray[ZERO][box.tag - 100] = [NSNumber numberWithBool:checkStatus];
+        internalBoolArray[ZERO][box.tag - 100] = [NSNumber numberWithBool:checkStatus];
     } else if ((200 <= box.tag && box.tag <= 206)) {
-        BOOL checkStatus = [self.checkBoolArray[TOTO][box.tag - 200] boolValue];
+        BOOL checkStatus = [internalBoolArray[TOTO][box.tag - 200] boolValue];
         checkStatus = !checkStatus;
-        self.checkBoolArray[TOTO][box.tag - 200] = [NSNumber numberWithBool:checkStatus];
+        internalBoolArray[TOTO][box.tag - 200] = [NSNumber numberWithBool:checkStatus];
     } else {
-        BOOL checkStatus = [self.checkBoolArray[BOOK][box.tag - 300] boolValue];
+        BOOL checkStatus = [internalBoolArray[BOOK][box.tag - 300] boolValue];
         checkStatus = !checkStatus;
-        self.checkBoolArray[BOOK][box.tag - 300] = [NSNumber numberWithBool:checkStatus];
+        internalBoolArray[BOOK][box.tag - 300] = [NSNumber numberWithBool:checkStatus];
     }
     
+//    if (100 <= box.tag && box.tag <= 109) {
+//        BOOL checkStatus = [self.checkBoolArray[ZERO][box.tag - 100] boolValue];
+//        checkStatus = !checkStatus;
+//        self.checkBoolArray[ZERO][box.tag - 100] = [NSNumber numberWithBool:checkStatus];
+//    } else if ((200 <= box.tag && box.tag <= 206)) {
+//        BOOL checkStatus = [self.checkBoolArray[TOTO][box.tag - 200] boolValue];
+//        checkStatus = !checkStatus;
+//        self.checkBoolArray[TOTO][box.tag - 200] = [NSNumber numberWithBool:checkStatus];
+//    } else {
+//        BOOL checkStatus = [self.checkBoolArray[BOOK][box.tag - 300] boolValue];
+//        checkStatus = !checkStatus;
+//        self.checkBoolArray[BOOK][box.tag - 300] = [NSNumber numberWithBool:checkStatus];
+//    }
 }
 
-////チェックボックスの内容をBOOL対応Arrayに反映　｜｜　上のメソッドよりこっちで一括したほうがいいかと思ったけどとりまやめとこ
-//- (void)viewWillDisappear:(BOOL)animated{}
+-(void)viewDidDisappear:(BOOL)animated
+{
+    //BoolArray情報をデリゲートに送信
+    appDelegate.boolArray = internalBoolArray;
+}
 
 - (void)didReceiveMemoryWarning {[super didReceiveMemoryWarning];}
 

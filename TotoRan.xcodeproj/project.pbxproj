@@ -9,20 +9,21 @@
 /* Begin PBXBuildFile section */
 		FE00E7471B830455006B020B /* HanteiLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = FE00E7461B830455006B020B /* HanteiLogic.m */; };
 		FE00E74A1B841CD3006B020B /* GetRandomSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = FE00E7491B841CD3006B020B /* GetRandomSingle.m */; };
+		FE05C1CA1C106B9700E8394C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE05C1C91C106B9700E8394C /* AppDelegate.m */; };
+		FE05C1CC1C10717200E8394C /* newRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05C1CB1C10717200E8394C /* newRootViewController.swift */; };
+		FE05C1CE1C108FF600E8394C /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05C1CD1C108FF600E8394C /* List.swift */; };
 		FE0EB2971BE3982200C022C0 /* toto.db in Resources */ = {isa = PBXBuildFile; fileRef = FE0EB2961BE3982200C022C0 /* toto.db */; };
 		FE3122DA1B0DFC0600AC11D5 /* GetKaisu.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3122D91B0DFC0600AC11D5 /* GetKaisu.m */; };
 		FE3122DD1B0E035900AC11D5 /* GetKaisuDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3122DC1B0E035900AC11D5 /* GetKaisuDetail.m */; };
 		FE3122E41B0F206C00AC11D5 /* ControllDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3122E31B0F206C00AC11D5 /* ControllDataBase.m */; };
 		FE3122EC1B101EE100AC11D5 /* GetRateToto.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3122EB1B101EE100AC11D5 /* GetRateToto.m */; };
 		FE37AF3A1B0AD7DB00D24C51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE37AF391B0AD7DB00D24C51 /* main.m */; };
-		FE37AF3D1B0AD7DB00D24C51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE37AF3C1B0AD7DB00D24C51 /* AppDelegate.m */; };
 		FE37AF431B0AD7DC00D24C51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE37AF411B0AD7DC00D24C51 /* Main.storyboard */; };
 		FE37AF451B0AD7DC00D24C51 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE37AF441B0AD7DC00D24C51 /* Images.xcassets */; };
 		FE37AF481B0AD7DC00D24C51 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE37AF461B0AD7DC00D24C51 /* LaunchScreen.xib */; };
 		FE37AF5F1B0AD89400D24C51 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FE37AF5E1B0AD89400D24C51 /* Reachability.m */; };
 		FE37AF641B0AD8AD00D24C51 /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FE37AF611B0AD8AD00D24C51 /* HTMLNode.m */; };
 		FE37AF651B0AD8AD00D24C51 /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FE37AF631B0AD8AD00D24C51 /* HTMLParser.m */; };
-		FE37AF6C1B0AD9DD00D24C51 /* SingleChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE37AF6B1B0AD9DD00D24C51 /* SingleChoiceViewController.m */; };
 		FE37AF7B1B0ADAF900D24C51 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FE37AF711B0ADAF900D24C51 /* FMDatabase.m */; };
 		FE37AF7C1B0ADAF900D24C51 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FE37AF731B0ADAF900D24C51 /* FMDatabaseAdditions.m */; };
 		FE37AF7D1B0ADAF900D24C51 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = FE37AF751B0ADAF900D24C51 /* FMDatabasePool.m */; };
@@ -30,6 +31,17 @@
 		FE37AF7F1B0ADAF900D24C51 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FE37AF7A1B0ADAF900D24C51 /* FMResultSet.m */; };
 		FE37AF811B0ADB6500D24C51 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE37AF801B0ADB6500D24C51 /* libsqlite3.dylib */; };
 		FE37AF831B0AFCD000D24C51 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE37AF821B0AFCD000D24C51 /* libxml2.dylib */; };
+		FE3A3E691C159B2400CA0170 /* SingleChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3A3E681C159B2400CA0170 /* SingleChoiceViewController.swift */; };
+		FE3A3E6D1C15D04900CA0170 /* MultiChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3A3E6C1C15D04900CA0170 /* MultiChoiceViewController.swift */; };
+		FE3A3E6F1C15D1E500CA0170 /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3A3E6E1C15D1E500CA0170 /* ChoiceViewController.swift */; };
+		FE3A3E711C17B6A000CA0170 /* RectMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3A3E701C17B6A000CA0170 /* RectMaker.swift */; };
+		FE3A3E731C17CE9A00CA0170 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3A3E721C17CE9A00CA0170 /* DetailsViewController.swift */; };
+		FE3A3E751C17E9A300CA0170 /* MultiDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3A3E741C17E9A300CA0170 /* MultiDetailsViewController.swift */; };
+		FE3A3E771C17E9FA00CA0170 /* SingleDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3A3E761C17E9FA00CA0170 /* SingleDetailsViewController.swift */; };
+		FE3A3E791C1AF22E00CA0170 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3A3E781C1AF22E00CA0170 /* ResultViewController.swift */; };
+		FE3A3E7B1C1AF28400CA0170 /* SingleResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3A3E7A1C1AF28400CA0170 /* SingleResultViewController.swift */; };
+		FE3A3E7D1C1AF29A00CA0170 /* MultiResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3A3E7C1C1AF29A00CA0170 /* MultiResultViewController.swift */; };
+		FE3A3E7F1C1B05C400CA0170 /* CommonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3A3E7E1C1B05C400CA0170 /* CommonClass.swift */; };
 		FE4511FE1B482C47006CBEB1 /* kashan01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE4511FD1B482C47006CBEB1 /* kashan01.mp3 */; };
 		FE4512001B482D7C006CBEB1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE4511FF1B482D7C006CBEB1 /* AudioToolbox.framework */; };
 		FE4DFA641BAEF3DC003EBC6A /* Defaults-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE4DFA601BAEF3DC003EBC6A /* Defaults-568h@2x.png */; };
@@ -50,15 +62,9 @@
 		FEE31F4D1BABF6CC0083A6F3 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F451BABF6CC0083A6F3 /* Icon-Small@2x.png */; };
 		FEE31F4E1BABF6CC0083A6F3 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE31F461BABF6CC0083A6F3 /* Icon-Small@3x.png */; };
 		FEE31F511BAC00E60083A6F3 /* libNendAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE31F4F1BAC00E60083A6F3 /* libNendAd.a */; };
-		FEF1A9DA1B1C8F1C0051C636 /* MultiChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF1A9D91B1C8F1C0051C636 /* MultiChoiceViewController.m */; };
-		FEF1A9DD1B1C91350051C636 /* SingleDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF1A9DC1B1C91350051C636 /* SingleDetailsViewController.m */; };
-		FEF1A9E01B1C915E0051C636 /* MultiDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF1A9DF1B1C915E0051C636 /* MultiDetailsViewController.m */; };
-		FEF1A9E81B1EF1E70051C636 /* SingleResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF1A9E71B1EF1E70051C636 /* SingleResultViewController.m */; };
-		FEF1A9EB1B1EF1F70051C636 /* MultiResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF1A9EA1B1EF1F70051C636 /* MultiResultViewController.m */; };
 		FEF5F73B1B9438A300E60359 /* PopReducViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF5F73A1B9438A300E60359 /* PopReducViewController.m */; };
 		FEF5F73E1B948C1300E60359 /* CTCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF5F73D1B948C1300E60359 /* CTCheckbox.m */; };
 		FEFA5FDB1B99ACBB005CEAD0 /* erase.wav in Resources */ = {isa = PBXBuildFile; fileRef = FEFA5FDA1B99ACBB005CEAD0 /* erase.wav */; };
-		FEFA601E1B9C76B2005CEAD0 /* newRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFA601D1B9C76B2005CEAD0 /* newRootViewController.m */; };
 		FEFA60251B9C8127005CEAD0 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFA60201B9C8127005CEAD0 /* SVIndefiniteAnimatedView.m */; };
 		FEFA60261B9C8127005CEAD0 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FEFA60221B9C8127005CEAD0 /* SVProgressHUD.bundle */; };
 		FEFA60271B9C8127005CEAD0 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFA60241B9C8127005CEAD0 /* SVProgressHUD.m */; };
@@ -77,6 +83,11 @@
 		FE00E7461B830455006B020B /* HanteiLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HanteiLogic.m; sourceTree = "<group>"; };
 		FE00E7481B841CD3006B020B /* GetRandomSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRandomSingle.h; sourceTree = "<group>"; };
 		FE00E7491B841CD3006B020B /* GetRandomSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetRandomSingle.m; sourceTree = "<group>"; };
+		FE05C1A71C106AA000E8394C /* TotoRan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TotoRan-Bridging-Header.h"; sourceTree = "<group>"; };
+		FE05C1C81C106B9700E8394C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FE05C1C91C106B9700E8394C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FE05C1CB1C10717200E8394C /* newRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newRootViewController.swift; sourceTree = "<group>"; };
+		FE05C1CD1C108FF600E8394C /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		FE0EB2961BE3982200C022C0 /* toto.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = toto.db; sourceTree = "<group>"; };
 		FE3122D81B0DFC0600AC11D5 /* GetKaisu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetKaisu.h; sourceTree = "<group>"; };
 		FE3122D91B0DFC0600AC11D5 /* GetKaisu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetKaisu.m; sourceTree = "<group>"; };
@@ -89,8 +100,6 @@
 		FE37AF341B0AD7DB00D24C51 /* TotoRan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TotoRan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE37AF381B0AD7DB00D24C51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE37AF391B0AD7DB00D24C51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FE37AF3B1B0AD7DB00D24C51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		FE37AF3C1B0AD7DB00D24C51 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FE37AF421B0AD7DC00D24C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE37AF441B0AD7DC00D24C51 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FE37AF471B0AD7DC00D24C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -100,8 +109,6 @@
 		FE37AF611B0AD8AD00D24C51 /* HTMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLNode.m; sourceTree = "<group>"; };
 		FE37AF621B0AD8AD00D24C51 /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
 		FE37AF631B0AD8AD00D24C51 /* HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLParser.m; sourceTree = "<group>"; };
-		FE37AF6A1B0AD9DD00D24C51 /* SingleChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChoiceViewController.h; sourceTree = "<group>"; };
-		FE37AF6B1B0AD9DD00D24C51 /* SingleChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChoiceViewController.m; sourceTree = "<group>"; };
 		FE37AF701B0ADAF900D24C51 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		FE37AF711B0ADAF900D24C51 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		FE37AF721B0ADAF900D24C51 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -115,6 +122,17 @@
 		FE37AF7A1B0ADAF900D24C51 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		FE37AF801B0ADB6500D24C51 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		FE37AF821B0AFCD000D24C51 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		FE3A3E681C159B2400CA0170 /* SingleChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleChoiceViewController.swift; sourceTree = "<group>"; };
+		FE3A3E6C1C15D04900CA0170 /* MultiChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiChoiceViewController.swift; sourceTree = "<group>"; };
+		FE3A3E6E1C15D1E500CA0170 /* ChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceViewController.swift; sourceTree = "<group>"; };
+		FE3A3E701C17B6A000CA0170 /* RectMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectMaker.swift; sourceTree = "<group>"; };
+		FE3A3E721C17CE9A00CA0170 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		FE3A3E741C17E9A300CA0170 /* MultiDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiDetailsViewController.swift; sourceTree = "<group>"; };
+		FE3A3E761C17E9FA00CA0170 /* SingleDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleDetailsViewController.swift; sourceTree = "<group>"; };
+		FE3A3E781C1AF22E00CA0170 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		FE3A3E7A1C1AF28400CA0170 /* SingleResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleResultViewController.swift; sourceTree = "<group>"; };
+		FE3A3E7C1C1AF29A00CA0170 /* MultiResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiResultViewController.swift; sourceTree = "<group>"; };
+		FE3A3E7E1C1B05C400CA0170 /* CommonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonClass.swift; sourceTree = "<group>"; };
 		FE4511FD1B482C47006CBEB1 /* kashan01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = kashan01.mp3; sourceTree = "<group>"; };
 		FE4511FF1B482D7C006CBEB1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		FE4DFA601BAEF3DC003EBC6A /* Defaults-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Defaults-568h@2x.png"; sourceTree = "<group>"; };
@@ -140,23 +158,11 @@
 		FEE31F461BABF6CC0083A6F3 /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
 		FEE31F4F1BAC00E60083A6F3 /* libNendAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNendAd.a; sourceTree = "<group>"; };
 		FEE31F501BAC00E60083A6F3 /* NADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADView.h; sourceTree = "<group>"; };
-		FEF1A9D81B1C8F1C0051C636 /* MultiChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiChoiceViewController.h; sourceTree = "<group>"; };
-		FEF1A9D91B1C8F1C0051C636 /* MultiChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiChoiceViewController.m; sourceTree = "<group>"; };
-		FEF1A9DB1B1C91350051C636 /* SingleDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleDetailsViewController.h; sourceTree = "<group>"; };
-		FEF1A9DC1B1C91350051C636 /* SingleDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleDetailsViewController.m; sourceTree = "<group>"; };
-		FEF1A9DE1B1C915E0051C636 /* MultiDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiDetailsViewController.h; sourceTree = "<group>"; };
-		FEF1A9DF1B1C915E0051C636 /* MultiDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiDetailsViewController.m; sourceTree = "<group>"; };
-		FEF1A9E61B1EF1E70051C636 /* SingleResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleResultViewController.h; sourceTree = "<group>"; };
-		FEF1A9E71B1EF1E70051C636 /* SingleResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleResultViewController.m; sourceTree = "<group>"; };
-		FEF1A9E91B1EF1F70051C636 /* MultiResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiResultViewController.h; sourceTree = "<group>"; };
-		FEF1A9EA1B1EF1F70051C636 /* MultiResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiResultViewController.m; sourceTree = "<group>"; };
 		FEF5F7391B9438A300E60359 /* PopReducViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopReducViewController.h; sourceTree = "<group>"; };
 		FEF5F73A1B9438A300E60359 /* PopReducViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopReducViewController.m; sourceTree = "<group>"; };
 		FEF5F73C1B948C1300E60359 /* CTCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTCheckbox.h; sourceTree = "<group>"; };
 		FEF5F73D1B948C1300E60359 /* CTCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTCheckbox.m; sourceTree = "<group>"; };
 		FEFA5FDA1B99ACBB005CEAD0 /* erase.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = erase.wav; sourceTree = "<group>"; };
-		FEFA601C1B9C76B2005CEAD0 /* newRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newRootViewController.h; sourceTree = "<group>"; };
-		FEFA601D1B9C76B2005CEAD0 /* newRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newRootViewController.m; sourceTree = "<group>"; };
 		FEFA601F1B9C8127005CEAD0 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		FEFA60201B9C8127005CEAD0 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		FEFA60211B9C8127005CEAD0 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
@@ -212,6 +218,22 @@
 		FE37AF361B0AD7DB00D24C51 /* TotoRan */ = {
 			isa = PBXGroup;
 			children = (
+				FE05C1A71C106AA000E8394C /* TotoRan-Bridging-Header.h */,
+				FE05C1C81C106B9700E8394C /* AppDelegate.h */,
+				FE05C1C91C106B9700E8394C /* AppDelegate.m */,
+				FE05C1CD1C108FF600E8394C /* List.swift */,
+				FE3A3E701C17B6A000CA0170 /* RectMaker.swift */,
+				FE3A3E7E1C1B05C400CA0170 /* CommonClass.swift */,
+				FE05C1CB1C10717200E8394C /* newRootViewController.swift */,
+				FE3A3E6E1C15D1E500CA0170 /* ChoiceViewController.swift */,
+				FE3A3E681C159B2400CA0170 /* SingleChoiceViewController.swift */,
+				FE3A3E6C1C15D04900CA0170 /* MultiChoiceViewController.swift */,
+				FE3A3E721C17CE9A00CA0170 /* DetailsViewController.swift */,
+				FE3A3E761C17E9FA00CA0170 /* SingleDetailsViewController.swift */,
+				FE3A3E741C17E9A300CA0170 /* MultiDetailsViewController.swift */,
+				FE3A3E781C1AF22E00CA0170 /* ResultViewController.swift */,
+				FE3A3E7A1C1AF28400CA0170 /* SingleResultViewController.swift */,
+				FE3A3E7C1C1AF29A00CA0170 /* MultiResultViewController.swift */,
 				FE3122E21B0F206C00AC11D5 /* ControllDataBase.h */,
 				FE3122E31B0F206C00AC11D5 /* ControllDataBase.m */,
 				FEFC45441B10CDB8001E8BBB /* GetRateBook.h */,
@@ -222,22 +244,6 @@
 				FE3122D91B0DFC0600AC11D5 /* GetKaisu.m */,
 				FE3122DB1B0E035900AC11D5 /* GetKaisuDetail.h */,
 				FE3122DC1B0E035900AC11D5 /* GetKaisuDetail.m */,
-				FE37AF3B1B0AD7DB00D24C51 /* AppDelegate.h */,
-				FE37AF3C1B0AD7DB00D24C51 /* AppDelegate.m */,
-				FEFA601C1B9C76B2005CEAD0 /* newRootViewController.h */,
-				FEFA601D1B9C76B2005CEAD0 /* newRootViewController.m */,
-				FE37AF6A1B0AD9DD00D24C51 /* SingleChoiceViewController.h */,
-				FE37AF6B1B0AD9DD00D24C51 /* SingleChoiceViewController.m */,
-				FEF1A9D81B1C8F1C0051C636 /* MultiChoiceViewController.h */,
-				FEF1A9D91B1C8F1C0051C636 /* MultiChoiceViewController.m */,
-				FEF1A9DB1B1C91350051C636 /* SingleDetailsViewController.h */,
-				FEF1A9DC1B1C91350051C636 /* SingleDetailsViewController.m */,
-				FEF1A9DE1B1C915E0051C636 /* MultiDetailsViewController.h */,
-				FEF1A9DF1B1C915E0051C636 /* MultiDetailsViewController.m */,
-				FEF1A9E61B1EF1E70051C636 /* SingleResultViewController.h */,
-				FEF1A9E71B1EF1E70051C636 /* SingleResultViewController.m */,
-				FEF1A9E91B1EF1F70051C636 /* MultiResultViewController.h */,
-				FEF1A9EA1B1EF1F70051C636 /* MultiResultViewController.m */,
 				FE90E5761B90351B00DCEAF2 /* PopHanteiViewController.h */,
 				FE90E5771B90351B00DCEAF2 /* PopHanteiViewController.m */,
 				FEF5F7391B9438A300E60359 /* PopReducViewController.h */,
@@ -382,6 +388,7 @@
 		FE37AF2C1B0AD7DB00D24C51 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = raksam.com;
 				TargetAttributes = {
@@ -448,36 +455,42 @@
 			files = (
 				FE37AF641B0AD8AD00D24C51 /* HTMLNode.m in Sources */,
 				FEF5F73E1B948C1300E60359 /* CTCheckbox.m in Sources */,
-				FEF1A9E01B1C915E0051C636 /* MultiDetailsViewController.m in Sources */,
 				FE3122EC1B101EE100AC11D5 /* GetRateToto.m in Sources */,
+				FE05C1CA1C106B9700E8394C /* AppDelegate.m in Sources */,
 				FE37AF651B0AD8AD00D24C51 /* HTMLParser.m in Sources */,
-				FE37AF6C1B0AD9DD00D24C51 /* SingleChoiceViewController.m in Sources */,
 				FE3122E41B0F206C00AC11D5 /* ControllDataBase.m in Sources */,
-				FE37AF3D1B0AD7DB00D24C51 /* AppDelegate.m in Sources */,
-				FEF1A9E81B1EF1E70051C636 /* SingleResultViewController.m in Sources */,
+				FE3A3E7B1C1AF28400CA0170 /* SingleResultViewController.swift in Sources */,
+				FE3A3E751C17E9A300CA0170 /* MultiDetailsViewController.swift in Sources */,
 				FEFA60271B9C8127005CEAD0 /* SVProgressHUD.m in Sources */,
 				FE37AF7C1B0ADAF900D24C51 /* FMDatabaseAdditions.m in Sources */,
 				FE00E7471B830455006B020B /* HanteiLogic.m in Sources */,
+				FE3A3E731C17CE9A00CA0170 /* DetailsViewController.swift in Sources */,
 				FEFA60251B9C8127005CEAD0 /* SVIndefiniteAnimatedView.m in Sources */,
-				FEF1A9EB1B1EF1F70051C636 /* MultiResultViewController.m in Sources */,
 				FE37AF7F1B0ADAF900D24C51 /* FMResultSet.m in Sources */,
+				FE05C1CC1C10717200E8394C /* newRootViewController.swift in Sources */,
 				FE3122DD1B0E035900AC11D5 /* GetKaisuDetail.m in Sources */,
 				FE90E5781B90351B00DCEAF2 /* PopHanteiViewController.m in Sources */,
-				FEFA601E1B9C76B2005CEAD0 /* newRootViewController.m in Sources */,
 				FE90E5751B90319600DCEAF2 /* UIViewController+MJPopupViewController.m in Sources */,
 				FE3122DA1B0DFC0600AC11D5 /* GetKaisu.m in Sources */,
+				FE05C1CE1C108FF600E8394C /* List.swift in Sources */,
+				FE3A3E7D1C1AF29A00CA0170 /* MultiResultViewController.swift in Sources */,
 				FE37AF5F1B0AD89400D24C51 /* Reachability.m in Sources */,
-				FEF1A9DD1B1C91350051C636 /* SingleDetailsViewController.m in Sources */,
 				FE90E5691B8EC1A700DCEAF2 /* GetRandomMulti.m in Sources */,
+				FE3A3E711C17B6A000CA0170 /* RectMaker.swift in Sources */,
 				FE00E74A1B841CD3006B020B /* GetRandomSingle.m in Sources */,
+				FE3A3E771C17E9FA00CA0170 /* SingleDetailsViewController.swift in Sources */,
 				FE37AF7D1B0ADAF900D24C51 /* FMDatabasePool.m in Sources */,
 				FE90E5741B90319600DCEAF2 /* MJPopupBackgroundView.m in Sources */,
 				FE37AF7E1B0ADAF900D24C51 /* FMDatabaseQueue.m in Sources */,
 				FE37AF3A1B0AD7DB00D24C51 /* main.m in Sources */,
+				FE3A3E691C159B2400CA0170 /* SingleChoiceViewController.swift in Sources */,
 				FEF5F73B1B9438A300E60359 /* PopReducViewController.m in Sources */,
+				FE3A3E7F1C1B05C400CA0170 /* CommonClass.swift in Sources */,
+				FE3A3E6D1C15D04900CA0170 /* MultiChoiceViewController.swift in Sources */,
 				FE37AF7B1B0ADAF900D24C51 /* FMDatabase.m in Sources */,
-				FEF1A9DA1B1C8F1C0051C636 /* MultiChoiceViewController.m in Sources */,
 				FEFC45461B10CDB8001E8BBB /* GetRateBook.m in Sources */,
+				FE3A3E6F1C15D1E500CA0170 /* ChoiceViewController.swift in Sources */,
+				FE3A3E791C1AF22E00CA0170 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +602,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -596,7 +610,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = TotoRan/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -604,6 +618,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.raksam.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TotoRan/TotoRan-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -612,6 +628,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -619,7 +636,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = TotoRan/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -627,6 +644,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.raksam.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TotoRan/TotoRan-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -10,6 +10,6 @@
 
 @interface GetRandomSingle : NSObject
 
-- (NSMutableArray *)returnRandomValue:(NSMutableArray *)tapArray tapCountArray:(NSMutableArray *)tapCountArray pickerCountArray:(NSMutableArray *)pickerCountArray unitNum:(int)unitNum;
+- (NSMutableArray *)returnRandomValue:(NSMutableArray *)tapArray tapCountArray:(NSArray *)tapCountArray pickerCountArray:(NSArray *)pickerCountArray unitNum:(int)unitNum;
 
 @end

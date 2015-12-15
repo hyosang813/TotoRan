@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CTCheckbox.h" //チェックボックス用外部クラス
+#import "AppDelegate.h" 
 
 @interface PopReducViewController : UIViewController
 
@@ -15,6 +16,6 @@
 @property (strong, nonatomic) NSArray *checkArray;
 
 //上記のArrayに対応するBOOL値が入ってるArray
-@property (strong, nonatomic) NSArray *checkBoolArray;
+//@property (strong, nonatomic) NSArray *checkBoolArray;
 
 @end

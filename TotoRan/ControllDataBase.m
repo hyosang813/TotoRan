@@ -79,8 +79,8 @@ enum {ZERO, ONE, TWO, THREE, MAX = 39};
     
     if([result intForColumnIndex:ZERO] == ZERO){
         // 登録データ数が０、もしくはすべての開催データが古い場合は取得し直すのでテーブルデータを全削除しておく
-        if (![mydb executeUpdate:DELETE_QUERY_KAISU]) //NSLog(@"kaisu table delete error!!!");
-        if (![mydb executeUpdate:DELETE_QUERY_KUMIAWASE]) //NSLog(@"kaisu table delete error!!!");
+        if (![mydb executeUpdate:DELETE_QUERY_KAISU]) NSLog(@"kaisu table delete error!!!");
+        if (![mydb executeUpdate:DELETE_QUERY_KUMIAWASE]) NSLog(@"kaisu table delete error!!!");
         
         [mydb close];
         [result close];
@@ -107,7 +107,7 @@ enum {ZERO, ONE, TWO, THREE, MAX = 39};
     //KAISUテーブルにインサート（開催回数、開始日時、終了日時）
     NSString *insertQueryKaisu = [NSString stringWithFormat:INSERT_QUERY_KAISU, data[KAISU], data[START_DATE], data[END_DATE]];
     if (![mydb executeUpdate:insertQueryKaisu]) {
-        //NSLog(@"kaisu table insert error!!!");
+        NSLog(@"kaisu table insert error!!!");
         return NO;
     }
     
@@ -116,7 +116,7 @@ enum {ZERO, ONE, TWO, THREE, MAX = 39};
     for (int i = TEAM_START; i <= TEAM_END; i += TWO) {
         NSString *insertQueryKumiawase = [NSString stringWithFormat:INSERT_QUERY_KUMIAWASE, data[KAISU], wakuCount, data[i], data[i + ONE]];
         if (![mydb executeUpdate:insertQueryKumiawase]) {
-            //NSLog(@"kumiawase table insert error!!!");
+            NSLog(@"kumiawase table insert error!!!");
             return NO;
         }
         wakuCount++;
