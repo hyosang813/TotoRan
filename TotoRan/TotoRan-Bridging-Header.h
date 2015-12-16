@@ -22,10 +22,6 @@
 //ResultViewContrller.swift
 #import "UIViewController+MJPopupViewController.h" //ポップアップ用
 #import "NADView.h" //NEND
-
-
-
-//一時的
 #import "PopHanteiViewController.h" //ポップアップ判定用
 #import "PopReducViewController.h" //ポップアップ削減用
 

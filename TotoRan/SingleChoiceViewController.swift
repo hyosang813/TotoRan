@@ -82,11 +82,11 @@ class SingleChoiceViewController: ChoiceViewController
         let nonTapCount = arrayParent.filter({ (val: Int) -> Bool in return val == 9}).count
         
         
-        //全て選択されてたらランダム処理は不要
-        if nonTapCount == 0 {
-            alertDisplay(MESSAGE_STR.ALL_SELECTED)
-            return
-        }
+        //全て選択されてたらランダム処理は不要　ジョークアプリって言われちまったよ！！！！！www
+//        if nonTapCount == 0 {
+//            alertDisplay(MESSAGE_STR.ALL_SELECTED)
+//            return
+//        }
         
         //各選択枠の数を取得
         let homeCount = arrayParent.filter({ (val: Int) -> Bool in return val == 1}).count

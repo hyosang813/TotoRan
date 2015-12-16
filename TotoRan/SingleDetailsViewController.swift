@@ -45,11 +45,12 @@ class SingleDetailsViewController: DetailsViewController
             return
         }
         
-        //選択合計数字と口数の整合性が合わなかったら警告　「選択合計数字が１３で全部同じ結果」
-        if Int(textArray[0].text!)! == Int(ManyNum.WAKU_COUNT) || Int(textArray[1].text!)! == Int(ManyNum.WAKU_COUNT) || Int(textArray[2].text!)! == Int(ManyNum.WAKU_COUNT) {
-            alertDisplay(MESSAGE_STR.ALL_IS_NONRANDOM)
-            return
-        }
+        //そりゃオール１やオール２やオール０も判定したいべよ
+//        //選択合計数字と口数の整合性が合わなかったら警告　「選択合計数字が１３で全部同じ結果」
+//        if Int(textArray[0].text!)! == Int(ManyNum.WAKU_COUNT) || Int(textArray[1].text!)! == Int(ManyNum.WAKU_COUNT) || Int(textArray[2].text!)! == Int(ManyNum.WAKU_COUNT) {
+//            alertDisplay(MESSAGE_STR.ALL_IS_NONRANDOM)
+//            return
+//        }
         
         //選択合計数字と口数の整合性が合わなかったら警告　「選択合計数字が１３で口数が２以上」
         if Int(textArray[0].text!)! + Int(textArray[1].text!)! + Int(textArray[2].text!)! == Int(ManyNum.WAKU_COUNT) && Int(textArray[3].text!)! > 1 {
@@ -112,19 +113,27 @@ class SingleDetailsViewController: DetailsViewController
         navigationController?.pushViewController(srvc, animated: true)
     }
     
+    //画面遷移した時点で１３枠すべてわかってたら「以上」をhiddenにしなきゃね　ジョークって言われたからこれも考慮しなきゃね
+    override func viewWillAppear(animated: Bool) {
+        hiddenCheck()
+    }
     
-//以下はピッカービューのデリゲートメソッド(override分のみ)
-    
-    //選択値をテキストフィールドにセット
-    override func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        super.pickerView(pickerView, didSelectRow: row, inComponent: component)
-        
+    //上を考慮して以上ラベルのhiddenチェックをぴっかデリゲートメソッドから切り出し
+    func hiddenCheck() {
         //合計数が13以上だった場合は「以上」ラベルをhidden
         var maxVal = 0
         for var i = 0; i < textArray.count - 1; i++ {
             maxVal += Int(textArray[i].text!)!
         }
         ijouLabelHidden(maxVal)
+    }
+    
+//以下はピッカービューのデリゲートメソッド(override分のみ)
+    
+    //選択値をテキストフィールドにセット
+    override func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        super.pickerView(pickerView, didSelectRow: row, inComponent: component)
+        hiddenCheck()
     }
     
     //合計数が13以上だった場合は「以上」ラベルをhiddenするメソッド
