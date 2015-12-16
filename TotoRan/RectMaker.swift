@@ -23,17 +23,17 @@ struct RectMaker {
 
     //シングルボタン
     static func singleBtnRect() -> CGRect {
-        return CGRectMake(RectMaker.width() / 2 - ((RectMaker.width() / 2) / 2), (RectMaker.height() / 8) * 2.4 - 10, RectMaker.width() / 2, RectMaker.height() / 10)
+        return CGRectMake(RectMaker.width() / 2 - ((RectMaker.width() / 2) / 2), (RectMaker.height() / 8) * 3 - 10, RectMaker.width() / 2, RectMaker.height() / 10)
     }
     
     //マルチボタン
     static func multiBtnRect() -> CGRect {
-        return CGRectMake(RectMaker.width() / 2 - ((RectMaker.width() / 2) / 2), (RectMaker.height() / 8) * 3.6 - 10, RectMaker.width() / 2, RectMaker.height() / 10)
+        return CGRectMake(RectMaker.width() / 2 - ((RectMaker.width() / 2) / 2), (RectMaker.height() / 8) * 4.2 - 10, RectMaker.width() / 2, RectMaker.height() / 10)
     }
     
     //リロードボタン
     static func reloadBtnRect() -> CGRect {
-        return CGRectMake(RectMaker.width() / 2 - ((RectMaker.width() / 2) / 2), (RectMaker.height() / 8) * 4.8 - 10, RectMaker.width() / 2, RectMaker.height() / 10)
+        return CGRectMake(RectMaker.width() / 2 - ((RectMaker.width() / 2) / 2), (RectMaker.height() / 8) * 5.4 - 10, RectMaker.width() / 2, RectMaker.height() / 10)
     }
     
     //回数ラベル

@@ -72,6 +72,7 @@ struct ODDS {
 //URL文字列の構造体
 struct URL_STR {
     static let KAISAI_URL = "https://toto.rakuten.co.jp/toto/schedule/"
+    static let TEAM_NAME_URL = "http://www.geocities.jp/totorandata/"
     static let COPY_TYPE = "public.utf8-plain-text"
 }
 

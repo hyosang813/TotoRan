@@ -11,8 +11,10 @@
 #define DBNAME @"toto.db"
 #define DELETE_QUERY_KAISU @"delete from kaisu"
 #define DELETE_QUERY_KUMIAWASE @"delete from kumiawase"
+#define DELETE_QUERY_ABBNAME @"delete from abbname"
 #define KAISAI_CHECK_QUERY @"select count(*) from kaisu where start_date > datetime('now', 'localtime')"
 #define INSERT_QUERY_KAISU @"insert into kaisu values ('%@', '%@', '%@')"
+#define INSERT_QUERY_ABBNAME @"insert into abbname values ('%@', '%@')"
 #define INSERT_QUERY_KUMIAWASE @"insert into kumiawase (kaisu, id, home_team, away_team) values ('%@', '%d', replace('%@', ' ', ''), replace('%@', ' ', ''))"
 #define UPDATE_QUERY_KUMIAWASE_TOTO @"update kumiawase set get_date = datetime('now', 'localtime'), home_rate = '%@', draw_rate = '%@', away_rate = '%@' where id = %d and kaisu = '%@'"
 #define UPDATE_QUERY_KUMIAWASE_BOOK @"update kumiawase set get_date = datetime('now', 'localtime'), home_rate_b = '%@', draw_rate_b = '%@', away_rate_b = '%@' where id = %d and kaisu = '%@'"
@@ -29,7 +31,7 @@
 #define SELECT_QUERY_KAISU_COUNT @"select count(*) from kaisu"
 #define SELECT_QUERY_SALEEND @"select strftime('%@', end_date) as enddate from kaisu where open_number = '%@'"
 #define DATEFORMAT1 @"%Y-%m-%d %H:00:00"
-#define DATEFORMAT2 @"%Y年%m月%d日 %H時00分時点"
+#define DATEFORMAT2 @"%Y年%m月%d日 %H時%M分時点"
 #define DATEFORMAT3 @"%Y年%m月%d日 %H時%M分締切"
 
 enum {KAISU, START_DATE, END_DATE, TEAM_START, TEAM_END = 28};
@@ -440,11 +442,38 @@ enum {ZERO, ONE, TWO, THREE, MAX = 39};
     
     // テーブルデータを全削除しておく
     if (![mydb executeUpdate:DELETE_QUERY_KAISU]) NSLog(@"kaisu table delete error!!!");
-    if (![mydb executeUpdate:DELETE_QUERY_KUMIAWASE]) NSLog(@"kaisu table delete error!!!");
+    if (![mydb executeUpdate:DELETE_QUERY_KUMIAWASE]) NSLog(@"kumiawase table delete error!!!");
 
     //データベースのクローズ
     [mydb close];
 
+}
+
+//チーム名マッピング表の更新(挿入)
+- (BOOL)insertTeamName:(NSArray *)data
+{
+    // データベースオブジェクトの作成
+    FMDatabase *mydb = [FMDatabase databaseWithPath:path];
+    
+    // データベースのオープン
+    [mydb open];
+    
+    //テーブルデータ全削除
+    if (![mydb executeUpdate:DELETE_QUERY_ABBNAME]) NSLog(@"abbname table delete error!!!");
+    
+    //ABBNAMEテーブルにインサート（チーム名、短縮名）
+    for (int i = ZERO; i < data.count; i++) {
+        NSString *insertQueryTeamName = [NSString stringWithFormat:INSERT_QUERY_ABBNAME, data[i][ZERO], data[i][ONE]];
+        if (![mydb executeUpdate:insertQueryTeamName]) {
+            NSLog(@"abbname table insert error!!!");
+            return NO;
+        }
+    }
+    
+    [mydb close];
+    
+    return YES;
+    
 }
 
 @end

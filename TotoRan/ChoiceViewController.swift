@@ -102,7 +102,7 @@ class ChoiceViewController: UIViewController, UIScrollViewDelegate {
         }
         
         //選択解除ボタンを配置
-        let clearButton = UIButton(frame: CGRectMake(RectMaker.width() / 2 - 100, clearY + 20, CHOICE.CLEAR_WIDTH, CHOICE.CLEAR_HEIGHT))
+        let clearButton = UIButton(frame: CGRectMake(RectMaker.width() / 2 - 100, clearY + 5, CHOICE.CLEAR_WIDTH, CHOICE.CLEAR_HEIGHT))
         clearButton.setTitle("選択解除", forState: .Normal)
         clearButton.setTitleColor(baseColor, forState: .Normal)
         clearButton.setBackgroundImage(UIImage(named: FILE_NAME.NOMAL_PNG), forState: .Normal)

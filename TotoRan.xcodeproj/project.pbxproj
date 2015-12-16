@@ -48,6 +48,7 @@
 		FE4DFA651BAEF3DC003EBC6A /* Defaults-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE4DFA611BAEF3DC003EBC6A /* Defaults-667h@2x.png */; };
 		FE4DFA661BAEF3DC003EBC6A /* Defaults-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE4DFA621BAEF3DC003EBC6A /* Defaults-736h@3x.png */; };
 		FE4DFA671BAEF3DC003EBC6A /* Defaults@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE4DFA631BAEF3DC003EBC6A /* Defaults@2x.png */; };
+		FE7357FC1C213E6B000A039F /* GetTeamNameMapList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7357FB1C213E6B000A039F /* GetTeamNameMapList.swift */; };
 		FE90E5691B8EC1A700DCEAF2 /* GetRandomMulti.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90E5681B8EC1A700DCEAF2 /* GetRandomMulti.m */; };
 		FE90E5741B90319600DCEAF2 /* MJPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90E5711B90319600DCEAF2 /* MJPopupBackgroundView.m */; };
 		FE90E5751B90319600DCEAF2 /* UIViewController+MJPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90E5731B90319600DCEAF2 /* UIViewController+MJPopupViewController.m */; };
@@ -139,6 +140,7 @@
 		FE4DFA611BAEF3DC003EBC6A /* Defaults-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Defaults-667h@2x.png"; sourceTree = "<group>"; };
 		FE4DFA621BAEF3DC003EBC6A /* Defaults-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Defaults-736h@3x.png"; sourceTree = "<group>"; };
 		FE4DFA631BAEF3DC003EBC6A /* Defaults@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Defaults@2x.png"; sourceTree = "<group>"; };
+		FE7357FB1C213E6B000A039F /* GetTeamNameMapList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTeamNameMapList.swift; sourceTree = "<group>"; };
 		FE90E5671B8EC1A700DCEAF2 /* GetRandomMulti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRandomMulti.h; sourceTree = "<group>"; };
 		FE90E5681B8EC1A700DCEAF2 /* GetRandomMulti.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetRandomMulti.m; sourceTree = "<group>"; };
 		FE90E5701B90319600DCEAF2 /* MJPopupBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPopupBackgroundView.h; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				FE05C1CD1C108FF600E8394C /* List.swift */,
 				FE3A3E701C17B6A000CA0170 /* RectMaker.swift */,
 				FE3A3E7E1C1B05C400CA0170 /* CommonClass.swift */,
+				FE7357FB1C213E6B000A039F /* GetTeamNameMapList.swift */,
 				FE05C1CB1C10717200E8394C /* newRootViewController.swift */,
 				FE3A3E6E1C15D1E500CA0170 /* ChoiceViewController.swift */,
 				FE3A3E681C159B2400CA0170 /* SingleChoiceViewController.swift */,
@@ -483,6 +486,7 @@
 				FE90E5741B90319600DCEAF2 /* MJPopupBackgroundView.m in Sources */,
 				FE37AF7E1B0ADAF900D24C51 /* FMDatabaseQueue.m in Sources */,
 				FE37AF3A1B0AD7DB00D24C51 /* main.m in Sources */,
+				FE7357FC1C213E6B000A039F /* GetTeamNameMapList.swift in Sources */,
 				FE3A3E691C159B2400CA0170 /* SingleChoiceViewController.swift in Sources */,
 				FEF5F73B1B9438A300E60359 /* PopReducViewController.m in Sources */,
 				FE3A3E7F1C1B05C400CA0170 /* CommonClass.swift in Sources */,

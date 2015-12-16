@@ -83,6 +83,7 @@ class newRootViewController: UIViewController
         if !dbControll.kaisaiDataCheck() {
             let kaisaiData = GetKaisu()
             kaisaiData.returnSourceString(URL_STR.KAISAI_URL)
+            _ = GetTeamNames()  //結果が不要な場合は「_ = 」をつける　気持ち悪い
         }
         
         //支持率データの取得判断

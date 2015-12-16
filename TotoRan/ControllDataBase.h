@@ -52,5 +52,8 @@
 //組合せテーブルと支持率テーブルの内容をDELETE
 - (void)deleteTables;
 
+//チーム名マッピング表の更新(挿入)
+- (BOOL)insertTeamName:(NSArray *)data;
+
 @end
 
