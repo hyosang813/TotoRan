@@ -102,7 +102,7 @@ class newRootViewController: UIViewController
             var abnomalCount = ManyNum.ZERO
             
             while true {
-                if dbControll.kaisuDataCountCheck() != ManyNum.ZERO {
+                if dbControll.kaisuDataCountCheck() != ManyNum.ZERO && dbControll.abbNameDataCountCheck() >= 50 { //少なくともabbnameテーブルの件数が50件以上あるかどうか？（J1+J2+J3だと50は上回る）
                     NSThread.sleepForTimeInterval(ManyNum.SLEEP)
                     if dbControll.returnKaisaiYesNo() == ManyNum.ZERO {
                         //クロージャの外側メソッドを呼ぶのでselfを付与

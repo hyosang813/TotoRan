@@ -55,5 +55,8 @@
 //チーム名マッピング表の更新(挿入)
 - (BOOL)insertTeamName:(NSArray *)data;
 
+//チーム名マッピング(abbname)テーブルのデータチェック
+- (int)abbNameDataCountCheck;
+
 @end
 

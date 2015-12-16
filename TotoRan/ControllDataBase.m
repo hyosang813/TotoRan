@@ -29,6 +29,7 @@
 #define SELECT_QUERY_NOW_KAISAI @"select count(*) from kaisu where (start_date < datetime('now', 'localtime') and end_date > datetime('now', 'localtime'))"
 #define SELECT_QUERY_GETDATE @"select strftime('%@', get_date) as gettime from kumiawase where kaisu = '%@' limit 1"
 #define SELECT_QUERY_KAISU_COUNT @"select count(*) from kaisu"
+#define SELECT_QUERY_ABBNAME_COUNT @"select count(*) from abbname"
 #define SELECT_QUERY_SALEEND @"select strftime('%@', end_date) as enddate from kaisu where open_number = '%@'"
 #define DATEFORMAT1 @"%Y-%m-%d %H:00:00"
 #define DATEFORMAT2 @"%Y年%m月%d日 %H時%M分時点"
@@ -390,6 +391,31 @@ enum {ZERO, ONE, TWO, THREE, MAX = 39};
     
     // SQL文の生成
     FMResultSet *result = [mydb executeQuery:[NSString stringWithFormat:SELECT_QUERY_KAISU_COUNT]];
+    
+    //結果を１件に絞ってるのでwhileで回す必要なし
+    [result next];
+    
+    //返す結果を変数に格納
+    int returnInt = [result intForColumnIndex:ZERO];
+    
+    //ResultSetとデータベースのクローズ
+    [result close];
+    [mydb close];
+    
+    return returnInt;
+}
+
+//チーム名マッピング(abbname)テーブルのデータチェック
+- (int)abbNameDataCountCheck
+{
+    // データベースオブジェクトの作成
+    FMDatabase *mydb = [FMDatabase databaseWithPath:path];
+    
+    // データベースのオープン
+    [mydb open];
+    
+    // SQL文の生成
+    FMResultSet *result = [mydb executeQuery:[NSString stringWithFormat:SELECT_QUERY_ABBNAME_COUNT]];
     
     //結果を１件に絞ってるのでwhileで回す必要なし
     [result next];

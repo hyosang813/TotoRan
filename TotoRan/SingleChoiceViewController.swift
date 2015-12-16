@@ -95,7 +95,9 @@ class SingleChoiceViewController: ChoiceViewController
         
         //口数のmax値を算出
         var unitMax = 10
-        if nonTapCount == 1 {
+        if nonTapCount == 0 {
+            unitMax = 1
+        } else if nonTapCount == 1 {
             unitMax = 3
         } else if nonTapCount == 2 {
             unitMax = 9
