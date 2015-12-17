@@ -42,9 +42,11 @@ class newRootViewController: UIViewController
         //ボタン
         let singleBtn = makeButton("シングル選択", frame: RectMaker.singleBtnRect(), tag: TAG.SINGLE, color: UIColor.blackColor())
         let multiBtn = makeButton("マルチ選択", frame: RectMaker.multiBtnRect(), tag: TAG.MULTI, color: UIColor.blackColor())
+        let confirmBtn = makeButton("支持率確認", frame: RectMaker.confirmBtnRect(), tag: TAG.CONFIRM, color: UIColor.blueColor())
         let reloadBtn = makeButton("データ再取得", frame: RectMaker.reloadBtnRect(), tag: TAG.RELOAD, color: UIColor.redColor())
         view.addSubview(singleBtn)
         view.addSubview(multiBtn)
+        view.addSubview(confirmBtn)
         view.addSubview(reloadBtn)
         
         //appDelegateにフォントサイズを格納
@@ -109,6 +111,8 @@ class newRootViewController: UIViewController
                         self.alertDisplay(MESSAGE_STR.NOT_KAISAI_MESSAGE)
                         self.abnomalFlg = true
                         self.abnomalMessage = MESSAGE_STR.NOT_KAISAI_MESSAGE
+                        //インジケータ終了
+                        SVProgressHUD.showSuccessWithStatus("")
                         return
                     }
                     break
@@ -120,6 +124,8 @@ class newRootViewController: UIViewController
                     self.alertDisplay(MESSAGE_STR.ROOP_AN_MESSAGE1)
                     self.abnomalFlg = true
                     self.abnomalMessage = MESSAGE_STR.ROOP_AN_MESSAGE1
+                    //インジケータ終了
+                    SVProgressHUD.showSuccessWithStatus("")
                     return
                 }
             }
@@ -141,6 +147,8 @@ class newRootViewController: UIViewController
                     self.alertDisplay(MESSAGE_STR.ROOP_AN_MESSAGE2)
                     self.abnomalFlg = true
                     self.abnomalMessage = MESSAGE_STR.ROOP_AN_MESSAGE2
+                    //インジケータ終了
+                    SVProgressHUD.showSuccessWithStatus("")
                     return
                 }
                 
@@ -211,6 +219,9 @@ class newRootViewController: UIViewController
         } else if button.tag == TAG.MULTI {
             let mcvc = MultiChoiceViewController()
             ngcl = UINavigationController(rootViewController: mcvc)
+        } else if button.tag == TAG.CONFIRM {
+            let rcvc = RateConfirmViewController()
+            ngcl = UINavigationController(rootViewController: rcvc)
         } else if button.tag == TAG.RELOAD {
             //DBインスタンス生成してkaisuテーブル、kumiawaseテーブルのデータ削除
             let dbControll = ControllDataBase()

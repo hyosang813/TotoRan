@@ -39,23 +39,6 @@
         self.abnomalMessage = NOT_DB_MESSAGE;
         return YES;
     }
-
-//    //DBインスタンス生成
-//    ControllDataBase *dbControll = [ControllDataBase new];
-//    
-//    //開催データ取得判断
-//    if (![dbControll kaisaiDataCheck]){
-//        //開催データの取得
-//        GetKaisu *kaisaiData = [GetKaisu new];
-//        [kaisaiData returnSourceString:KAISAI_URL];
-//    }
-//    
-//    //支持率データ取得判断
-//    NSString *judgeData = [dbControll rateUpdateJudge];
-//    if (judgeData) {
-//        GetRateToto *toto = [GetRateToto new];
-//        [toto parseRate:judgeData];
-//    }
     
     return YES;
 }

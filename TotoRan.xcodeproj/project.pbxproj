@@ -49,6 +49,8 @@
 		FE4DFA671BAEF3DC003EBC6A /* Defaults@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE4DFA631BAEF3DC003EBC6A /* Defaults@2x.png */; };
 		FE7357FC1C213E6B000A039F /* GetTeamNameMapList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7357FB1C213E6B000A039F /* GetTeamNameMapList.swift */; };
 		FE7357FE1C2187B6000A039F /* toto.db in Resources */ = {isa = PBXBuildFile; fileRef = FE7357FD1C2187B6000A039F /* toto.db */; };
+		FE73581E1C224CEC000A039F /* RateConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE73581D1C224CEC000A039F /* RateConfirmViewController.swift */; };
+		FE7358221C22B6B7000A039F /* RateConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7358211C22B6B7000A039F /* RateConfirmView.swift */; };
 		FE90E5691B8EC1A700DCEAF2 /* GetRandomMulti.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90E5681B8EC1A700DCEAF2 /* GetRandomMulti.m */; };
 		FE90E5741B90319600DCEAF2 /* MJPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90E5711B90319600DCEAF2 /* MJPopupBackgroundView.m */; };
 		FE90E5751B90319600DCEAF2 /* UIViewController+MJPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90E5731B90319600DCEAF2 /* UIViewController+MJPopupViewController.m */; };
@@ -141,6 +143,8 @@
 		FE4DFA631BAEF3DC003EBC6A /* Defaults@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Defaults@2x.png"; sourceTree = "<group>"; };
 		FE7357FB1C213E6B000A039F /* GetTeamNameMapList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTeamNameMapList.swift; sourceTree = "<group>"; };
 		FE7357FD1C2187B6000A039F /* toto.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = toto.db; sourceTree = "<group>"; };
+		FE73581D1C224CEC000A039F /* RateConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateConfirmViewController.swift; sourceTree = "<group>"; };
+		FE7358211C22B6B7000A039F /* RateConfirmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateConfirmView.swift; sourceTree = "<group>"; };
 		FE90E5671B8EC1A700DCEAF2 /* GetRandomMulti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRandomMulti.h; sourceTree = "<group>"; };
 		FE90E5681B8EC1A700DCEAF2 /* GetRandomMulti.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetRandomMulti.m; sourceTree = "<group>"; };
 		FE90E5701B90319600DCEAF2 /* MJPopupBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPopupBackgroundView.h; sourceTree = "<group>"; };
@@ -228,6 +232,8 @@
 				FE3A3E7E1C1B05C400CA0170 /* CommonClass.swift */,
 				FE7357FB1C213E6B000A039F /* GetTeamNameMapList.swift */,
 				FE05C1CB1C10717200E8394C /* newRootViewController.swift */,
+				FE73581D1C224CEC000A039F /* RateConfirmViewController.swift */,
+				FE7358211C22B6B7000A039F /* RateConfirmView.swift */,
 				FE3A3E6E1C15D1E500CA0170 /* ChoiceViewController.swift */,
 				FE3A3E681C159B2400CA0170 /* SingleChoiceViewController.swift */,
 				FE3A3E6C1C15D04900CA0170 /* MultiChoiceViewController.swift */,
@@ -467,12 +473,14 @@
 				FEFA60271B9C8127005CEAD0 /* SVProgressHUD.m in Sources */,
 				FE37AF7C1B0ADAF900D24C51 /* FMDatabaseAdditions.m in Sources */,
 				FE00E7471B830455006B020B /* HanteiLogic.m in Sources */,
+				FE73581E1C224CEC000A039F /* RateConfirmViewController.swift in Sources */,
 				FE3A3E731C17CE9A00CA0170 /* DetailsViewController.swift in Sources */,
 				FEFA60251B9C8127005CEAD0 /* SVIndefiniteAnimatedView.m in Sources */,
 				FE37AF7F1B0ADAF900D24C51 /* FMResultSet.m in Sources */,
 				FE05C1CC1C10717200E8394C /* newRootViewController.swift in Sources */,
 				FE3122DD1B0E035900AC11D5 /* GetKaisuDetail.m in Sources */,
 				FE90E5781B90351B00DCEAF2 /* PopHanteiViewController.m in Sources */,
+				FE7358221C22B6B7000A039F /* RateConfirmView.swift in Sources */,
 				FE90E5751B90319600DCEAF2 /* UIViewController+MJPopupViewController.m in Sources */,
 				FE3122DA1B0DFC0600AC11D5 /* GetKaisu.m in Sources */,
 				FE05C1CE1C108FF600E8394C /* List.swift in Sources */,

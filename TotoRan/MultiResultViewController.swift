@@ -48,13 +48,15 @@ class MultiResultViewController: ResultViewController
             }
         }
         
+        //Int32だとiOS8で落ちるからIntで扱ってくれ！！！！
+        let randomArrayInt = randomArray as! [[Int]]
+        
         //マルチの結果文字列を作っていきます
         var multiResultString = ""
         var zeroCount = 0
         var drawSingleCount = 0
-        
 
-        for var i = 0; i < randomArray.count; i++ {
+        for var i = 0; i < randomArrayInt.count; i++ {
 
             //ドローだけでシングルの枠はプチ削減対象外にしなきゃいけない
             var drawSingleFlg = false
@@ -64,18 +66,17 @@ class MultiResultViewController: ResultViewController
             var randPartString = " ["
             for var j = 0; j < 3; j++ {
                 //9は-に、数値は文字列に変換
-                if randomArray[i][j] == 9 {
+                if randomArrayInt[i][j] == 9 {
                     randPartString += "-"
                 } else {
-                    randPartString += String(randomArray[i][j])
+                    randPartString += String(randomArrayInt[i][j])
                     drawSingleCountDetail++
-                    if randomArray[i][j] == 0 {
+                    if randomArrayInt[i][j] == 0 {
                         zeroCount++
                         drawSingleFlg = true
                     }
                 }
             }
-            
 
             //かっこを閉じる
             randPartString += "]\n"
@@ -95,7 +96,6 @@ class MultiResultViewController: ResultViewController
             multiResultString += String(NSString(format: "%02d", i + 1)) + " " + String(teamArray[i]) + " － " + String(teamArray[i + 13]) + randPartString
             //コード補完を使うとSourceKitServiceがCPUを200%占有とかしちゃう
             //teamArray[i]とteamArray[i + 13]を明示的にStringでキャストしてあげるだけで随分CPU食わなくなった
-            
         }
 
         //結果をテキストビューに表示
@@ -133,24 +133,16 @@ class MultiResultViewController: ResultViewController
     
     //プチ削減ボタン押下時のアクションメソッド
     func popupReduction() {
-        
         let prc = PopReducViewController()
-        
         prc.checkArray = reduceArray
-//        prc.checkBoolArray = reduceBoolArray
-        
         presentPopupViewController(prc, animationType: MJPopupViewAnimationFade)
     }
     
     //判定結果ボタン押下時のアクションメソッド
     func popupHanteiView() {
-
         let phc = PopHanteiViewController()
-        
         phc.hanteiDataArray = hanteiDataArray
         phc.checkArray = reduceArray
-//        phc.checkBoolArray = reduceBoolArray
-        
         presentPopupViewController(phc, animationType: MJPopupViewAnimationFade)
     }
  }

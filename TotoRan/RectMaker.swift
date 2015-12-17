@@ -18,22 +18,27 @@ struct RectMaker {
     
     //ロゴマーク
     static func logoRect() -> CGRect {
-        return CGRectMake(RectMaker.width() / 2 - 50, (RectMaker.height() / 8) - 10, 100, 100)
+        return CGRectMake(RectMaker.width() / 2 - 50, (RectMaker.height() / 8) - 20, 100, 100)
     }
 
     //シングルボタン
     static func singleBtnRect() -> CGRect {
-        return CGRectMake(RectMaker.width() / 2 - ((RectMaker.width() / 2) / 2), (RectMaker.height() / 8) * 3 - 10, RectMaker.width() / 2, RectMaker.height() / 10)
+        return CGRectMake(RectMaker.width() / 2 - ((RectMaker.width() / 2) / 2), (RectMaker.height() / 8) * 2.5 - 10, RectMaker.width() / 2, RectMaker.height() / 10)
     }
     
     //マルチボタン
     static func multiBtnRect() -> CGRect {
-        return CGRectMake(RectMaker.width() / 2 - ((RectMaker.width() / 2) / 2), (RectMaker.height() / 8) * 4.2 - 10, RectMaker.width() / 2, RectMaker.height() / 10)
+        return CGRectMake(RectMaker.width() / 2 - ((RectMaker.width() / 2) / 2), (RectMaker.height() / 8) * 3.5 - 10, RectMaker.width() / 2, RectMaker.height() / 10)
+    }
+    
+    //支持率確認ボタン
+    static func confirmBtnRect() -> CGRect {
+        return CGRectMake(RectMaker.width() / 2 - ((RectMaker.width() / 2) / 2), (RectMaker.height() / 8) * 4.5 - 10, RectMaker.width() / 2, RectMaker.height() / 10)
     }
     
     //リロードボタン
     static func reloadBtnRect() -> CGRect {
-        return CGRectMake(RectMaker.width() / 2 - ((RectMaker.width() / 2) / 2), (RectMaker.height() / 8) * 5.4 - 10, RectMaker.width() / 2, RectMaker.height() / 10)
+        return CGRectMake(RectMaker.width() / 2 - ((RectMaker.width() / 2) / 2), (RectMaker.height() / 8) * 5.5 - 10, RectMaker.width() / 2, RectMaker.height() / 10)
     }
     
     //回数ラベル
@@ -222,7 +227,27 @@ struct RectMaker {
     //結果表示画面セクション(マルチ)*************************************************************ここまで
     
     
+    //支持率表示画面***************************************************************************ここから
     
+    //セグメントコントロール
+    static func segRect() -> CGRect {
+        return CGRectMake(RectMaker.width() / 2 - 100, RectMaker.height() - 70, 200, 50)
+    }
     
+    //対戦表のリストView
+    static func teamListRect() -> CGRect {
+        return CGRectMake(20, 74, (RectMaker.width() - 40) / 3, RectMaker.height() - 204)
+    }
+    
+    //支持率棒グラフのView
+    static func rateViewRect() -> CGRect {
+        return CGRectMake(20 + ((RectMaker.width() - 40) / 3), 74, ((RectMaker.width() - 40) / 3) * 2, RectMaker.height() - 204)
+    }
+    
+    //取得日時ラベル
+    static func dateLabelRect() -> CGRect {
+        return CGRectMake(RectMaker.width() / 2 - 150, RectMaker.height() - 120, 300, 40)
+    }
 
+    //支持率表示画面***************************************************************************ここまで
 }

@@ -43,7 +43,8 @@ struct TAG {
     //choice画面
     static let SINGLE = 101
     static let MULTI = 102
-    static let RELOAD = 103
+    static let CONFIRM = 103
+    static let RELOAD = 104
     //シングルdetail画面
     static let HOME_T = 101
     //static let DRAW_T = 102 ← 自動インクリメントで設定してるからコメントアウト
@@ -103,11 +104,9 @@ struct CHOICE {
 
 //メッセージ系文字列の構造体 ※AppDelegateはObjective-Cだからここでは書かないでAppDelegate.mに書いてある
 struct MESSAGE_STR {
-//    static let NOT_COMU_MESSAGE = "通信不良でデータが取得できません\n通信可能な状態でアプリを再起動してください"
-//    static let NOT_DB_MESSAGE = "DBの作成に失敗しました\nアプリを再起動してください"
     static let DATA_GETING = "データ取得中..."
     static let DATA_GETED = "データ取得完了！"
-    static let ROOP_AN_MESSAGE1 = "何かしらの異常が発生しました\nアプリを再起動してください\n※Jリーグシーズンオフ中はデータがないので起動できません"
+    static let ROOP_AN_MESSAGE1 = "何かしらの異常が発生しました\nアプリを再起動してください\n※シーズンオフでスケジュールが未定な場合は起動できません"
     static let ROOP_AN_MESSAGE2 = "何かしらの異常が発生しました\nアプリを再起動してください"
     static let NOT_KAISAI_MESSAGE = "現在開催中のtotoはありません"
     static let ALL_SELECTED = "もうその組み合わせで買えば？"
@@ -122,15 +121,16 @@ struct MESSAGE_STR {
     static let TOTORAN = "\n\n#トトラン！"
     static let COPY_MESSAGE = "クリップボードに保存しました\n以下のような場所にご使用ください\n・twitter\n・FaceBook\n・某巨大掲示板"
     static let RETURN_MESSAGE = "前画面に戻ると現在のランダム抽出データが破棄されますが、よろしいですか？"
+    static let NODATA_BOOK = "現在はまだbook(bODDS)の支持率情報がありません"
 }
 
 //NENDのキー
 struct NENDKEY {
     //本番キー
-//    static let SET_ID = "c8bd9444e4a8061a10c867d45629ce252a17cd82"
-//    static let SPOT_ID = "443087"
+    static let SET_ID = "c8bd9444e4a8061a10c867d45629ce252a17cd82"
+    static let SPOT_ID = "443087"
     
     //テストキー
-    static let SET_ID = "a6eca9dd074372c898dd1df549301f277c53f2b9"
-    static let SPOT_ID = "3172"
+//    static let SET_ID = "a6eca9dd074372c898dd1df549301f277c53f2b9"
+//    static let SPOT_ID = "3172"
 }
