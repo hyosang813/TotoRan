@@ -177,7 +177,21 @@ class ChoiceViewController: UIViewController, UIScrollViewDelegate {
     
     //ベース画面に戻る
     func goBack() {
-        alertDisplayYesNo(MESSAGE_STR.BASE_RERTURN)
+        
+        //選択されたボタンが１つもなければアラートなしで戻る
+        var tag = CHOICE.TAG_BASE
+        for var i = 0; i < 3; i++ {
+            for var j = 0; j < 13; j++ {
+                let target = view.viewWithTag(tag) as! UIButton
+                if target.selected {
+                    alertDisplayYesNo(MESSAGE_STR.BASE_RERTURN)
+                    return
+                }
+                tag++
+            }
+            tag += CHOICE.TAG_INCREMENT
+        }
+        backClicked()
     }
     
     //ピッカービューの表示文字列の配列セットメソッド
