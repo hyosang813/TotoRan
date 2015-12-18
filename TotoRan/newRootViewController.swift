@@ -221,6 +221,7 @@ class newRootViewController: UIViewController
             ngcl = UINavigationController(rootViewController: mcvc)
         } else if button.tag == TAG.CONFIRM {
             let rcvc = RateConfirmViewController()
+            rcvc.modalTransitionStyle = .FlipHorizontal
             ngcl = UINavigationController(rootViewController: rcvc)
         } else if button.tag == TAG.RELOAD {
             //DBインスタンス生成してkaisuテーブル、kumiawaseテーブルのデータ削除
