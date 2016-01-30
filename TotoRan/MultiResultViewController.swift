@@ -29,7 +29,7 @@ class MultiResultViewController: ResultViewController
     }
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+       super.viewDidLoad()
 
         //画面タイトルを設定
         self.title = "マルチ選択"
@@ -109,7 +109,7 @@ class MultiResultViewController: ResultViewController
         var bookEiji :[String] = []
         for var arr in hanteiDataArray {
             totoEiji.append(arr[13] as! String)
-            if arr.count >= 15 {
+            if arr.count > 15 {
                 bookEiji.append(arr[15] as! String)
             }
         }
