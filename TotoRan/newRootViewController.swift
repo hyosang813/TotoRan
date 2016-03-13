@@ -49,6 +49,17 @@ class newRootViewController: UIViewController
         view.addSubview(confirmBtn)
         view.addSubview(reloadBtn)
         
+        //現在の回数と販売終了日を表示する枠を生成
+        let kaisuLabel = UILabel(frame: RectMaker.kaisuLabelRect())
+        kaisuLabel.backgroundColor = UIColor.clearColor()
+        kaisuLabel.textColor = UIColor.blackColor()
+        kaisuLabel.numberOfLines = 2
+        kaisuLabel.textAlignment = .Center
+        kaisuLabel.text = ""
+        kaisuLabel.font = UIFont.systemFontOfSize(CGFloat(self.fontSizeDispatch - FontSize.SYSTEMSIZE))
+        kaisuLabel.tag = 666
+        self.view.addSubview(kaisuLabel)
+        
         //appDelegateにフォントサイズを格納
         appDelegate.fontSize = fontSizeDispatch
     }
@@ -173,14 +184,8 @@ class newRootViewController: UIViewController
                 SVProgressHUD.showSuccessWithStatus(MESSAGE_STR.DATA_GETED)
                 
                 //現在の回数と販売終了日を表示してあげようかね？
-                let kaisuLabel = UILabel(frame: RectMaker.kaisuLabelRect())
-                kaisuLabel.backgroundColor = UIColor.clearColor()
-                kaisuLabel.textColor = UIColor.blackColor()
-                kaisuLabel.numberOfLines = 2
-                kaisuLabel.textAlignment = .Center
+                let kaisuLabel = self.view.viewWithTag(666) as! UILabel
                 kaisuLabel.text = "対象回：第\((self.appDelegate.kaisu as NSString).substringFromIndex(1))回 toto\n\(dbControll.returnSaleEndDate())"
-                kaisuLabel.font = UIFont.systemFontOfSize(CGFloat(self.fontSizeDispatch - FontSize.SYSTEMSIZE))
-                self.view.addSubview(kaisuLabel)
             })
         })
     }
