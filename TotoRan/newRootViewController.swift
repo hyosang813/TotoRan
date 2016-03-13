@@ -185,7 +185,11 @@ class newRootViewController: UIViewController
                 
                 //現在の回数と販売終了日を表示してあげようかね？
                 let kaisuLabel = self.view.viewWithTag(666) as! UILabel
-                kaisuLabel.text = "対象回：第\((self.appDelegate.kaisu as NSString).substringFromIndex(1))回 toto\n\(dbControll.returnSaleEndDate())"
+                
+                //先頭が「0」だったら取っ払って、じゃなかったらそのままにする
+                let editKaisu = self.appDelegate.kaisu
+                let displayKaisu = editKaisu[editKaisu.startIndex] == "0" ? editKaisu.substringFromIndex(editKaisu.startIndex.advancedBy(1)) : editKaisu
+                kaisuLabel.text = "対象回：第\(displayKaisu)回 toto\n\(dbControll.returnSaleEndDate())"
             })
         })
     }
