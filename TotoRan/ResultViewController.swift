@@ -53,6 +53,7 @@ class ResultViewController: UIViewController, NADViewDelegate
         resultView.font = UIFont(name: "Courier", size: CGFloat(appDelegate.fontSize))
         resultView.layer.borderWidth = 2
         resultView.layer.borderColor = UIColor.blackColor().CGColor
+        resultView.scrollEnabled = false
         view.addSubview(resultView) //implicitly unwrapped optionalだからforced unwrapped「!」要らず
         
         //ボタンの生成と配置

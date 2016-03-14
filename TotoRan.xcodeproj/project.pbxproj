@@ -47,8 +47,8 @@
 		FE4DFA651BAEF3DC003EBC6A /* Defaults-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE4DFA611BAEF3DC003EBC6A /* Defaults-667h@2x.png */; };
 		FE4DFA661BAEF3DC003EBC6A /* Defaults-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE4DFA621BAEF3DC003EBC6A /* Defaults-736h@3x.png */; };
 		FE4DFA671BAEF3DC003EBC6A /* Defaults@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE4DFA631BAEF3DC003EBC6A /* Defaults@2x.png */; };
+		FE5C01C51C952EFC00DD430E /* toto.db in Resources */ = {isa = PBXBuildFile; fileRef = FE5C01C41C952EFC00DD430E /* toto.db */; };
 		FE7357FC1C213E6B000A039F /* GetTeamNameMapList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7357FB1C213E6B000A039F /* GetTeamNameMapList.swift */; };
-		FE7357FE1C2187B6000A039F /* toto.db in Resources */ = {isa = PBXBuildFile; fileRef = FE7357FD1C2187B6000A039F /* toto.db */; };
 		FE73581E1C224CEC000A039F /* RateConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE73581D1C224CEC000A039F /* RateConfirmViewController.swift */; };
 		FE7358221C22B6B7000A039F /* RateConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7358211C22B6B7000A039F /* RateConfirmView.swift */; };
 		FE90E5691B8EC1A700DCEAF2 /* GetRandomMulti.m in Sources */ = {isa = PBXBuildFile; fileRef = FE90E5681B8EC1A700DCEAF2 /* GetRandomMulti.m */; };
@@ -141,8 +141,8 @@
 		FE4DFA611BAEF3DC003EBC6A /* Defaults-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Defaults-667h@2x.png"; sourceTree = "<group>"; };
 		FE4DFA621BAEF3DC003EBC6A /* Defaults-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Defaults-736h@3x.png"; sourceTree = "<group>"; };
 		FE4DFA631BAEF3DC003EBC6A /* Defaults@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Defaults@2x.png"; sourceTree = "<group>"; };
+		FE5C01C41C952EFC00DD430E /* toto.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = toto.db; sourceTree = "<group>"; };
 		FE7357FB1C213E6B000A039F /* GetTeamNameMapList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTeamNameMapList.swift; sourceTree = "<group>"; };
-		FE7357FD1C2187B6000A039F /* toto.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = toto.db; sourceTree = "<group>"; };
 		FE73581D1C224CEC000A039F /* RateConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateConfirmViewController.swift; sourceTree = "<group>"; };
 		FE7358211C22B6B7000A039F /* RateConfirmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateConfirmView.swift; sourceTree = "<group>"; };
 		FE90E5671B8EC1A700DCEAF2 /* GetRandomMulti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRandomMulti.h; sourceTree = "<group>"; };
@@ -332,7 +332,7 @@
 		FE37AF6D1B0ADA1600D24C51 /* DB */ = {
 			isa = PBXGroup;
 			children = (
-				FE7357FD1C2187B6000A039F /* toto.db */,
+				FE5C01C41C952EFC00DD430E /* toto.db */,
 			);
 			name = DB;
 			sourceTree = "<group>";
@@ -449,7 +449,7 @@
 				FEFA60391BA44D7B005CEAD0 /* select_single.png in Resources */,
 				FEE31F481BABF6CC0083A6F3 /* Icon-60@3x.png in Resources */,
 				FE37AF451B0AD7DC00D24C51 /* Images.xcassets in Resources */,
-				FE7357FE1C2187B6000A039F /* toto.db in Resources */,
+				FE5C01C51C952EFC00DD430E /* toto.db in Resources */,
 				FEFA60261B9C8127005CEAD0 /* SVProgressHUD.bundle in Resources */,
 				FEE31F471BABF6CC0083A6F3 /* Icon-60@2x.png in Resources */,
 			);

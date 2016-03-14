@@ -50,59 +50,61 @@ class MultiResultViewController: ResultViewController
         
         //Int32だとiOS8で落ちるからIntで扱ってくれ！！！！
         let randomArrayInt = randomArray as! [[Int]]
-        
-        //マルチの結果文字列を作っていきます
+
+        //マルチの結果文字列を作っていくと同時にプチ削減に必要なカウント情報を集めていきます
         var multiResultString = ""
-        var zeroCount = 0
+        var homeCount = 0
+        var drawCount = 0
+        var awayCount = 0
+        var homeSingleCount = 0
         var drawSingleCount = 0
-
+        var awaySingleCount = 0
+        
         for var i = 0; i < randomArrayInt.count; i++ {
-
-            //ドローだけでシングルの枠はプチ削減対象外にしなきゃいけない
-            var drawSingleFlg = false
-            var drawSingleCountDetail = 0
-
+            
+            var singleFlg = false
+            
+            //この枠がシングルか否かを判定
+            if randomArrayInt[i].filter({$0 == 9}).count == 2 { singleFlg = true }
+            
+            //それぞれ存在すればカウントアップ
+            if randomArrayInt[i].filter({$0 == 1}).count > 0 {
+                homeCount++
+                if singleFlg { homeSingleCount++ }
+            }
+            if randomArrayInt[i].filter({$0 == 0}).count > 0 {
+                drawCount++
+                if singleFlg { drawSingleCount++ }
+            }
+            if randomArrayInt[i].filter({$0 == 2}).count > 0 {
+                awayCount++
+                if singleFlg { awaySingleCount++ }
+            }
+            
             //一行分のランダム結果文字列を作成 [1-2]みたいな
-            var randPartString = " ["
-            for var j = 0; j < 3; j++ {
-                //9は-に、数値は文字列に変換
-                if randomArrayInt[i][j] == 9 {
-                    randPartString += "-"
-                } else {
-                    randPartString += String(randomArrayInt[i][j])
-                    drawSingleCountDetail++
-                    if randomArrayInt[i][j] == 0 {
-                        zeroCount++
-                        drawSingleFlg = true
-                    }
+            let tempRandPartString = " [\(randomArrayInt[i][0])" + "\(randomArrayInt[i][1])" + "\(randomArrayInt[i][2])]\n"
+            var randPartString = ""
+            for char in tempRandPartString.characters {
+                if char == "9" {
+                    let temp: Character = "-"
+                    randPartString.append(temp)
+                }
+                else {
+                    randPartString.append(char)
                 }
             }
-
-            //かっこを閉じる
-            randPartString += "]\n"
-            
-            //この枠がドローシングルだったらカウントアップ
-            if drawSingleFlg && drawSingleCountDetail == 1 {
-                drawSingleCount++
-            }
-            
-
-            //フラグを初期化
-            drawSingleFlg = false
-            drawSingleCountDetail = 0
             
             //一行分の文字列を作成例：「1 浦 和 - G大阪 [1-2]」
-            //multiResultString += String(i + 1) + " " + teamArray[i] + " － " + teamArray[i + 13] + randPartString
             multiResultString += String(NSString(format: "%02d", i + 1)) + " " + String(teamArray[i]) + " － " + String(teamArray[i + 13]) + randPartString
-            //コード補完を使うとSourceKitServiceがCPUを200%占有とかしちゃう
-            //teamArray[i]とteamArray[i + 13]を明示的にStringでキャストしてあげるだけで随分CPU食わなくなった
         }
 
         //結果をテキストビューに表示
         resultView.text = multiResultString
         
-        //0の数とドローシングル枠数をreduceArrayに追加
-        reduceArray.append([zeroCount, drawSingleCount])
+        //102の数とシングル枠数をreduceArrayに追加
+        reduceArray.append([homeCount, homeSingleCount])
+        reduceArray.append([drawCount, drawSingleCount])
+        reduceArray.append([awayCount, awaySingleCount])
         
         //判定英字を抽出して格納
         var totoEiji :[String] = []
@@ -120,8 +122,8 @@ class MultiResultViewController: ResultViewController
         var partCount = 0
         for rd in reduceArray {
             var boolArray: [Bool] = []
-            partCount = partCount == 0 ? (rd.firstObject as! Int) + 1 : rd.count
-            for var i = 0; i < partCount; i++ {
+            let forCount = partCount <= 2 ? (rd.firstObject as! Int) + 1 : rd.count
+            for var i = 0; i < forCount; i++ {
                 boolArray.append(true)
             }
             reduceBoolArray.append(boolArray)

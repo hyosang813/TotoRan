@@ -8,11 +8,11 @@
 
 #import "PopReducViewController.h"
 
-#define CHECKLABELRECT CGRectMake(5, 5, 150, 30)
+#define HEIGHT_BASE 30.0
 #define WIDTH_BASE 5.0
 
-enum {ZERO, TOTO, BOOK};
-enum {ZEROCOUNT, SDCOUNT};
+enum {HOME, DRAW, AWAY, TOTO, BOOK};
+enum {PARTCOUNT, SINGLECOUNT};
 
 @interface PopReducViewController ()
 
@@ -22,6 +22,8 @@ enum {ZEROCOUNT, SDCOUNT};
 {
     AppDelegate *appDelegate; //デリゲート
     NSMutableArray *internalBoolArray; //移し換える
+    float heightBase; // = 30;
+    float widthBase; // = WIDTH_BASE;
 }
 
 - (void)viewDidLoad {
@@ -37,8 +39,6 @@ enum {ZEROCOUNT, SDCOUNT};
     //デリゲート取得
     appDelegate = [[UIApplication sharedApplication] delegate];
     
-    //BoolArray情報をデリゲートから取得
-//    self.checkBoolArray = appDelegate.boolArray;
     
     //self.reduceBoolArrayはswiftの型なので、boolArrayに一度移し換える
     internalBoolArray = [NSMutableArray new];
@@ -57,119 +57,25 @@ enum {ZEROCOUNT, SDCOUNT};
     CGRect new = CGRectMake(original.origin.x,
                             original.origin.y,
                             original.size.width * 0.75,
-                            original.size.height * 0.70);
+                            original.size.height);
     
     // 新しい枠をセットする
     self.view.frame = new;
     
-    //ゼロ個数用のチェックボックスの題目ラベル
-    UILabel *checkLabel = [[UILabel alloc] initWithFrame:CHECKLABELRECT];
-    checkLabel.text = @"◆ドロー(0)の数で絞る";
-    [checkLabel sizeToFit];
-    
-    [self.view addSubview:checkLabel];
-    
-    //ゼロ個数用のチェックボックス生成
-    float widthBase = WIDTH_BASE;
-    float heightBase = 30;
-    for (int i = 0; i < [self.checkArray[ZERO][ZEROCOUNT] intValue] + 1; i++) {
-        [self checkBoxMake:[NSString stringWithFormat:@"%d", i]
-                      rect:CGRectMake(widthBase, heightBase, (self.view.bounds.size.width / 5), 30)
-                       tag:i + 100
-                   checked:[internalBoolArray[ZERO][i] boolValue]];
-//                   checked:[self.checkBoolArray[ZERO][i] boolValue]];
-        widthBase += (self.view.bounds.size.width / 5);
-        if (i == 4 && [self.checkArray[ZERO][ZERO] intValue] >= 5) {
-            widthBase = WIDTH_BASE;
-            heightBase += 30;
-        }
-        //ゼロの個数は９個(0~9の10パターン)まで対応
-        if (i == 9) break;
-    }
-    
-    //チェックボックスが一種類しかない場合enabledをfalseにする
-    if (([self.checkArray[ZERO][ZERO] intValue]) == 0) {
-        CTCheckbox *totoBox = (CTCheckbox *)[self.view viewWithTag:100];
-        totoBox.enabled = NO;
-        [totoBox setCheckboxColor:[UIColor lightGrayColor]];
-        totoBox.textLabel.textColor = [UIColor lightGrayColor];
-    }
-    
-    //ドローシングル枠の数だけenabledをfalseにする
-    for (int i = 0; i < [self.checkArray[ZERO][SDCOUNT] intValue] + 1; i++) {
-        CTCheckbox *totoBox = (CTCheckbox *)[self.view viewWithTag:100+i];
-        totoBox.enabled = NO;
-        [totoBox setCheckboxColor:[UIColor lightGrayColor]];
-        totoBox.textLabel.textColor = [UIColor lightGrayColor];
-    }
-    
-    //大文字判定用のチェックボックスの題目ラベル
-    heightBase += 50;
-    UILabel *totoLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, heightBase, 150, 30)];
-    totoLabel.text = @"◆大文字判定で絞る";
-    [totoLabel sizeToFit];
-    
-    [self.view addSubview:totoLabel];
-    
-    //大文字判定用のチェックボックス生成
+    //ベースとなる情報
+    heightBase = HEIGHT_BASE;
     widthBase = WIDTH_BASE;
-    heightBase += 20;
-    for (int i = 0; i < [self.checkArray[TOTO] count]; i++) {
-        [self checkBoxMake:self.checkArray[TOTO][i]
-                      rect:CGRectMake(widthBase, heightBase, self.view.bounds.size.width / 5, 30)
-                       tag:i + 200
-                   checked:[internalBoolArray[TOTO][i] boolValue]];
-//                   checked:[self.checkBoolArray[TOTO][i] boolValue]];
-        widthBase += self.view.bounds.size.width / 5;
-        if (i == 4 && [self.checkArray[TOTO] count] >= 6) {
-            widthBase = WIDTH_BASE;
-            heightBase += 30;
-        }
-    }
     
-    //チェックボックスが一種類しかない場合enabledをfalseにする
-    if ([self.checkArray[TOTO] count] == 1) {
-        CTCheckbox *totoBox = (CTCheckbox *)[self.view viewWithTag:200];
-        totoBox.enabled = NO;
-        [totoBox setCheckboxColor:[UIColor lightGrayColor]];
-        totoBox.textLabel.textColor = [UIColor lightGrayColor];
-    }
+    //ホーム、ドロー、アウェイのチェックボックスグループ
+    [self homeDrawAwayMake:@"◆ホーム(1)の数で絞る" part:HOME tagBase:100];
+    [self homeDrawAwayMake:@"◆ドロー(0)の数で絞る" part:DRAW tagBase:200];
+    [self homeDrawAwayMake:@"◆アウェイ(2)の数で絞る" part:AWAY tagBase:300];
     
-    //bODDSの処理
-    if ([self.checkArray[BOOK] count] > 0) {
-        //小文字判定用のチェックボックスの題目ラベル
-        heightBase += 50;
-        UILabel *bookLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, heightBase, 150, 30)];
-        bookLabel.text = @"◆小文字判定で絞る";
-        [bookLabel sizeToFit];
-        
-        [self.view addSubview:bookLabel];
-        
-        //小さい文字判定用のチェックボックス生成
-        widthBase = WIDTH_BASE;
-        heightBase += 20;
-        for (int i = 0; i < [self.checkArray[BOOK] count]; i++) {
-            [self checkBoxMake:self.checkArray[BOOK][i]
-                          rect:CGRectMake(widthBase, heightBase, self.view.bounds.size.width / 5, 30)
-                           tag:i + 300
-                       checked:[internalBoolArray[BOOK][i] boolValue]];
-//                       checked:[self.checkBoolArray[BOOK][i] boolValue]];
-            widthBase += self.view.bounds.size.width / 5;
-            if (i == 4) {
-                widthBase = WIDTH_BASE;
-                heightBase += 30;
-            }
-            
-        }
-        
-        //チェックボックスが一種類しかない場合enabledをfalseにする
-        if ([self.checkArray[BOOK] count] == 1) {
-            CTCheckbox *totoBox = (CTCheckbox *)[self.view viewWithTag:300];
-            totoBox.enabled = NO;
-            [totoBox setCheckboxColor:[UIColor lightGrayColor]];
-            totoBox.textLabel.textColor = [UIColor lightGrayColor];
-        }
-    }
+    //toto、bookのチェックボックスグループ
+    [self totoBookMake:@"◆大文字判定で絞る" part:TOTO tagBase:400];
+    if ([self.checkArray[BOOK] count] > 0)
+        [self totoBookMake:@"◆小文字判定で絞る" part:BOOK tagBase:500];
+    
     
     //最終枠描画用にオリジナルの枠を取得
     CGRect originalLast = self.view.frame;
@@ -185,16 +91,114 @@ enum {ZEROCOUNT, SDCOUNT};
 
 }
 
+//ホーム、ドロー、アウェイのチェックボックスグループ生成メソッド
+- (void)homeDrawAwayMake:(NSString *)title part:(int)part tagBase:(int)tagBase {
+    
+    //ゼロ個数用のチェックボックスの題目ラベル
+    UILabel *checkLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, heightBase, 150, 30)];
+    checkLabel.text = title; //@"◆ドロー(0)の数で絞る";
+    [checkLabel sizeToFit];
+    [self.view addSubview:checkLabel];
+    
+    heightBase += 20;
+    
+    //ゼロ個数用のチェックボックス生成
+    float lineBreakCount = 0; //改行が必要なカウント
+    for (int i = 0; i < [self.checkArray[part][PARTCOUNT] intValue] + 1; i++) {
+        //ドローシングル枠の個数一個前まではチェックボックスを作らない
+        if (i < [self.checkArray[part][SINGLECOUNT] intValue]) {
+            continue;
+        }
+        
+        //２段目
+        if (lineBreakCount == 5) {
+            widthBase = WIDTH_BASE;
+            heightBase += 30;
+        }
+        
+        //ドローシングル枠の個数と同じチェックボックスはenabledをfalseにする
+        if (i == [self.checkArray[part][SINGLECOUNT] intValue]) {
+            [self checkBoxMake:[NSString stringWithFormat:@"%d", i]
+                          rect:CGRectMake(widthBase, heightBase, (self.view.bounds.size.width / 5), 30)
+                           tag:i + tagBase
+                       checked:[internalBoolArray[part][i] boolValue]
+                         color:[UIColor lightGrayColor]
+                        enable:NO
+                   enableCpunt:0];
+        } else {
+            [self checkBoxMake:[NSString stringWithFormat:@"%d", i]
+                          rect:CGRectMake(widthBase, heightBase, (self.view.bounds.size.width / 5), 30)
+                           tag:i + tagBase
+                       checked:[internalBoolArray[part][i] boolValue]
+                         color:[UIColor blackColor]
+                        enable:YES
+                   enableCpunt:0];
+        }
+        
+        widthBase += (self.view.bounds.size.width / 5);
+        lineBreakCount++;
+        
+        //ゼロの個数は９個(0~9の10パターン)まで対応
+        if (i == 9) break;
+    }
+
+    //最後にheightをインクリメントしてwidthbaseをリセット
+    heightBase += 50;
+    widthBase = WIDTH_BASE;
+}
+
+//toto、bookのチェックボックスグループ生成メソッド
+- (void)totoBookMake:(NSString *)title part:(int)part tagBase:(int)tagBase {
+
+    UILabel *totoLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, heightBase, 150, 30)];
+    totoLabel.text = title;
+    [totoLabel sizeToFit];
+    [self.view addSubview:totoLabel];
+    
+    //小さい文字判定用のチェックボックス生成
+    widthBase = WIDTH_BASE;
+    heightBase += 20;
+    for (int i = 0; i < [self.checkArray[part] count]; i++) {
+        [self checkBoxMake:self.checkArray[part][i]
+                      rect:CGRectMake(widthBase, heightBase, self.view.bounds.size.width / 5, 30)
+                       tag:i + tagBase
+                   checked:[internalBoolArray[part][i] boolValue]
+                     color:[UIColor blackColor]
+                    enable:YES
+               enableCpunt:(int)[self.checkArray[part] count]];
+        widthBase += self.view.bounds.size.width / 5;
+        if (i == 4) {
+            widthBase = WIDTH_BASE;
+            heightBase += 30;
+        }
+    }
+    
+    //最後にheightをインクリメントしてwidthbaseをリセット
+    heightBase += 50;
+    widthBase = WIDTH_BASE;
+}
+
+
 //チェックボックス生成メソッド
-- (void)checkBoxMake:(NSString *)name rect:(CGRect)rect tag:(int)tag checked:(BOOL)checked
+- (void)checkBoxMake:(NSString *)name rect:(CGRect)rect tag:(int)tag checked:(BOOL)checked color:(UIColor *)color enable:(BOOL)enable enableCpunt:(int)enableCount
 {
     CTCheckbox *box = [CTCheckbox new];
     box.frame = rect;
     box.tag = tag;
     box.textLabel.text = name;
     box.checked = checked;
+    box.enabled = enable;
+    [box setCheckboxColor:color];
+    box.textLabel.textColor = color;
+    
+    //もし一個しかなかったら非選択
+    if (enableCount == 1) {
+        box.enabled = NO;
+        [box setCheckboxColor:[UIColor lightGrayColor]];
+        box.textLabel.textColor = [UIColor lightGrayColor];
+    }
+    
     [box addTarget:self action:@selector(boxChecked:) forControlEvents:UIControlEventTouchUpInside];
-
     [self.view addSubview:box];
 }
 
@@ -202,32 +206,27 @@ enum {ZEROCOUNT, SDCOUNT};
 - (void)boxChecked:(CTCheckbox *)box
 {
     if (100 <= box.tag && box.tag <= 109) {
-        BOOL checkStatus = [internalBoolArray[ZERO][box.tag - 100] boolValue];
+        BOOL checkStatus = [internalBoolArray[HOME][box.tag - 100] boolValue];
         checkStatus = !checkStatus;
-        internalBoolArray[ZERO][box.tag - 100] = [NSNumber numberWithBool:checkStatus];
-    } else if ((200 <= box.tag && box.tag <= 206)) {
-        BOOL checkStatus = [internalBoolArray[TOTO][box.tag - 200] boolValue];
+        internalBoolArray[HOME][box.tag - 100] = [NSNumber numberWithBool:checkStatus];
+    } else if ((200 <= box.tag && box.tag <= 209)) {
+        BOOL checkStatus = [internalBoolArray[DRAW][box.tag - 200] boolValue];
         checkStatus = !checkStatus;
-        internalBoolArray[TOTO][box.tag - 200] = [NSNumber numberWithBool:checkStatus];
+        internalBoolArray[DRAW][box.tag - 200] = [NSNumber numberWithBool:checkStatus];
+    } else if ((300 <= box.tag && box.tag <= 309))  {
+        BOOL checkStatus = [internalBoolArray[AWAY][box.tag - 300] boolValue];
+        checkStatus = !checkStatus;
+        internalBoolArray[AWAY][box.tag - 300] = [NSNumber numberWithBool:checkStatus];
+    } else if ((400 <= box.tag && box.tag <= 409))  {
+        BOOL checkStatus = [internalBoolArray[TOTO][box.tag - 400] boolValue];
+        checkStatus = !checkStatus;
+        internalBoolArray[TOTO][box.tag - 400] = [NSNumber numberWithBool:checkStatus];
     } else {
-        BOOL checkStatus = [internalBoolArray[BOOK][box.tag - 300] boolValue];
+        BOOL checkStatus = [internalBoolArray[BOOK][box.tag - 500] boolValue];
         checkStatus = !checkStatus;
-        internalBoolArray[BOOK][box.tag - 300] = [NSNumber numberWithBool:checkStatus];
+        internalBoolArray[BOOK][box.tag - 500] = [NSNumber numberWithBool:checkStatus];
     }
-    
-//    if (100 <= box.tag && box.tag <= 109) {
-//        BOOL checkStatus = [self.checkBoolArray[ZERO][box.tag - 100] boolValue];
-//        checkStatus = !checkStatus;
-//        self.checkBoolArray[ZERO][box.tag - 100] = [NSNumber numberWithBool:checkStatus];
-//    } else if ((200 <= box.tag && box.tag <= 206)) {
-//        BOOL checkStatus = [self.checkBoolArray[TOTO][box.tag - 200] boolValue];
-//        checkStatus = !checkStatus;
-//        self.checkBoolArray[TOTO][box.tag - 200] = [NSNumber numberWithBool:checkStatus];
-//    } else {
-//        BOOL checkStatus = [self.checkBoolArray[BOOK][box.tag - 300] boolValue];
-//        checkStatus = !checkStatus;
-//        self.checkBoolArray[BOOK][box.tag - 300] = [NSNumber numberWithBool:checkStatus];
-//    }
+
 }
 
 -(void)viewDidDisappear:(BOOL)animated
